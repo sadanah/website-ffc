@@ -1,5 +1,83 @@
 body{
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    min-width: 320px;
+}
+
+/*Responsive media queries*/
+@media (max-width: 800px) { /*responsive text for small screen sizes*/
+    #carouselExample .slider-text h1 {
+        font-size: 30px;
+    }
+    #carouselExample .slider-text p{
+        font-size: 16px;
+    }
+    #carouselExample .slider-text{
+        position: aboslute;
+        top: 40%;
+    }
+    #carouselExample .slider-text .btn-danger{
+        font-size: 14px;
+    }
+    #memberships h1{
+        font-size: 45px;
+    }
+    #carouselExample button.carousel-control-prev, button.carousel-control-next {
+        margin-top: 20% !important;
+        margin-bottom: 25%;
+    }
+}
+
+@media (max-width: 550px) { /*responsive text for small screen sizes*/
+    #carouselExample .slider-text h1 {
+        font-size: 20px;
+    }
+    #carouselExample .slider-text p{
+        font-size: 14px;
+    }
+    #carouselExample .slider-text{
+        position: aboslute;
+        top: 30%c!important;
+    }
+    #carouselExample .slider-text .btn-danger{
+        font-size: 12px;
+    }
+    #memberships h1{
+        font-size: 30px;
+    }
+    #carouselExample button.carousel-control-prev, button.carousel-control-next {
+        margin-top: 30% !important;
+        margin-bottom: 25%;
+    }
+    #carouselExample .carousel-inner .carousel-item img {
+        height: 70vh !important;
+    }
+    .carousel{
+        height: 70vh !important;
+    }
+}
+
+@media (max-width: 320px) { /*responsive text for small screen sizes*/
+    #carouselExample .slider-text h1 {
+        font-size: 16px;
+    }
+    #carouselExample .slider-text p{
+        font-size: 12px;
+    }
+    #carouselExample .slider-text{
+        position: aboslute;
+        top: 35% !important;
+    }
+    #carouselExample .slider-text .btn-danger{
+        font-size: 10px;
+    }
+    #memberships h1{
+        font-size: 25px;
+    }
+    #carouselExample button.carousel-control-prev, button.carousel-control-next {
+        margin-top: 35% !important;
+        width: 30px;
+        height: 30px;
+    }
 }
 
 /*Navbar styling*/
@@ -35,7 +113,6 @@ body{
     top: 40%; 
     left: 50%; 
     transform: translate(-50%, -50%); 
-    color: white;
     text-align: center;
 }
 
@@ -64,27 +141,47 @@ body{
     bottom: 0;
     background-image: url('res/FFC_Slider1.jpg'); /* Replace with your image */
     background-size: cover; /* Cover the entire area */
-    filter: blur(50px); /* Adjust the blur amount */
+    filter: blur(60px); /* Adjust the blur amount */
     opacity: 0.6; 
     z-index: -1; 
 }
 
-@media (max-width: 650px) { /*responsive text for small screen sizes*/
-    .slider-text h1 {
-        font-size: 20px;
-    }
-    .slider-text p{
-        font-size: 14px;
-    }
-    .slider-text{
-        position: aboslute;
-        top: 20%;
-    }
-}
-
 .carousel-item {
-    height: 80vh; /* Full height of the viewport */
+    height: 100vh; /* Full height of the viewport */
     background-size: cover; /* Cover the entire area */
     background-position: center; /* Center the image */
+}
+
+button.carousel-control-prev, button.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    margin-top: 25%;
+    margin-bottom: 25%;
+}
+
+/*Cards styling*/
+.carousel{
+    height: 100vh;
+    align-items: center;
+    margin-right: 50px;
+    background-color: #939393;
+    width: 100%;
+    height: fit-content;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+#carouselExample .carousel-inner .carousel-item img {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card{
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+}
+
+#memberships h1{
+    font-family: 'sakana', sans-serif;
+    color: #282828;
 }
 
