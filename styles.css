@@ -1,0 +1,90 @@
+body{
+    overflow-x: hidden;
+}
+
+/*Navbar styling*/
+.navbar{
+    background-color: #d3d3d3;
+}
+
+.nav-item{
+    margin-right: 15px;
+    white-space: nowrap;
+}
+
+.nav-item .nav-link{
+    color: #000000;
+    font-weight: 500;
+    font-family: "roboto";
+    font-size: 13pt;
+    text-align: center;
+}
+
+.navbar .navbar-brand{
+    margin-right: 30px;
+}
+
+/*Slider styling*/
+@font-face {
+    font-family: 'Sakana';
+    src: url('Sakana.ttf') format('truetype');
+}
+
+.slider-text{
+    position: absolute; 
+    top: 40%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    color: white;
+    text-align: center;
+}
+
+
+.slider-text h1 {
+    font-family: "Sakana";
+    font-size: 45px;
+    color: #ed0000;
+    text-shadow: 0px 0px 50px rgba(0, 0, 0, 0.9);
+}
+
+.slider-text p {
+    font-family: "roboto";
+    font-size: 22px;
+    color: #f0f0f0;
+    font-weight: 400;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+}
+
+.slider-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('FFC_Slider1.jpg'); /* Replace with your image */
+    background-size: cover; /* Cover the entire area */
+    filter: blur(50px); /* Adjust the blur amount */
+    opacity: 0.6; 
+    z-index: -1; 
+}
+
+@media (max-width: 650px) { /*responsive text for small screen sizes*/
+    .slider-text h1 {
+        font-size: 20px;
+    }
+    .slider-text p{
+        font-size: 14px;
+    }
+    .slider-text{
+        position: aboslute;
+        top: 20%;
+    }
+}
+
+.carousel-item {
+    height: 80vh; /* Full height of the viewport */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+}
+
