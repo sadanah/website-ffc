@@ -27,7 +27,7 @@ body{
 /*Slider styling*/
 @font-face {
     font-family: 'Sakana';
-    src: url('Sakana.ttf') format('truetype');
+    src: url('res/Sakana.ttf') format('truetype');
 }
 
 .slider-text{
