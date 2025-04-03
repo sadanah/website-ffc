@@ -15,7 +15,7 @@ body{
 .nav-item .nav-link{
     color: #000000;
     font-weight: 500;
-    font-family: "roboto";
+    font-family: 'roboto', sans-serif;
     font-size: 13pt;
     text-align: center;
 }
@@ -41,14 +41,14 @@ body{
 
 
 .slider-text h1 {
-    font-family: "Sakana";
+    font-family: 'Sakana', sans-serif;
     font-size: 45px;
     color: #ed0000;
     text-shadow: 0px 0px 50px rgba(0, 0, 0, 0.9);
 }
 
 .slider-text p {
-    font-family: "roboto";
+    font-family: 'roboto', sans-serif;
     font-size: 22px;
     color: #f0f0f0;
     font-weight: 400;
@@ -62,7 +62,7 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('FFC_Slider1.jpg'); /* Replace with your image */
+    background-image: url('res/FFC_Slider1.jpg'); /* Replace with your image */
     background-size: cover; /* Cover the entire area */
     filter: blur(50px); /* Adjust the blur amount */
     opacity: 0.6; 
