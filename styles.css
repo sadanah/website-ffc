@@ -108,8 +108,7 @@ body{
 }
 
     
-
-
+/*Home Page*/
 /*Navbar styling*/
 .navbar{
     background-color: #d3d3d3;
@@ -136,6 +135,7 @@ body{
 #carouselExample{
     background-color: #a6c1da;
 }
+
 @font-face {
     font-family: 'Sakana';
     src: url('res/Sakana.ttf') format('truetype');
@@ -247,6 +247,9 @@ h2{
 
 #clientReviewsCarousel .card{
     background-color: #a6c1da;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 250px;
 }
 
 /*blog section*/
@@ -268,6 +271,10 @@ h2{
     font-family: 'roboto', sans-serif;
     font-size: 13pt;
     font-weight: 500;
+}
+
+#registration-form{
+    background-color: #a6c1da;
 }
 
 /*footer*/
@@ -301,6 +308,7 @@ footer .footer-content ul li a{
     object-fit: cover;
 }
 
+
 /*Membership Page*/
 #membership-hero-image img{
     width: 100%;
@@ -309,4 +317,22 @@ footer .footer-content ul li a{
 }
 #our-programs{
     background-color: #339200;
+}
+
+
+/*Registration page*/
+#registration-form{
+    background-color: #eab6b6;
+}
+
+#registration-form form label{
+    font-family: 'roboto', sans-serif;
+    font-size: 13pt;
+    font-weight: 500;
+}
+
+
+#registration-form form input,
+#registration-form form select{
+    border: 1px solid #ed0000;
 }
