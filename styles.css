@@ -252,7 +252,7 @@ h2{
     height: 250px;
 }
 
-/*blog section*/
+/*blog link section*/
 #blog-link{
     background-color: #f157ff;
     margin-top: -25px;
@@ -335,4 +335,10 @@ footer .footer-content ul li a{
 #registration-form form input,
 #registration-form form select{
     border: 1px solid #ed0000;
+}
+
+
+/*Blog page*/
+#blog-cards{
+    background-color: #eee4ff;
 }
