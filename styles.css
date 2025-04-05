@@ -3,6 +3,11 @@ body{
     min-width: 320px;
 }
 
+.btn-danger{
+    font-size: 13pt !important;
+    font-weight: 500 !important;
+}
+
 /*Responsive media queries*/
 @media(min-width: 800px) { /*responsive text for large screen sizes*/
     #carouselExample .carousel-item {
@@ -12,6 +17,9 @@ body{
     #clientReviewsCarousel .carousel-control-next {
         margin-left: -100px !important;
         margin-right: -100px !important;  
+    }
+    h2{
+        font-size: 45px !important;
     }
 }
 
@@ -29,8 +37,8 @@ body{
     #carouselExample .slider-text .btn-danger{
         font-size: 14px;
     }
-    #memberships h1, #client-reviews h2{
-        font-size: 40px !important;
+    h2{
+        font-size: 35px !important;
     }
     #carouselExample button.carousel-control-prev, 
     #carouselExample button.carousel-control-next {
@@ -56,7 +64,7 @@ body{
     #carouselExample .slider-text .btn-danger{
         font-size: 12px;
     }
-    #memberships h1, #client-reviews h2{
+    h2{
         font-size: 30px !important;
     }
     #carouselExample button.carousel-control-prev, 
@@ -85,8 +93,8 @@ body{
     #carouselExample .slider-text .btn-danger{
         font-size: 10px;
     }
-    #memberships h1, #client-reviews h2{
-        font-size: 30px !important;
+    h2{
+        font-size: 25px !important;
     } 
     #carouselExample button.carousel-control-prev, 
     #carouselExample button.carousel-control-next {
@@ -220,7 +228,7 @@ body{
     background-color: #339200;
 }
 
-#client-reviews h2{
+h2{
     font-family: 'sakana', sans-serif;
     color: #282828;
     font-size: 45px;
@@ -239,4 +247,36 @@ body{
 
 #clientReviewsCarousel .card{
     background-color: #a6c1da;
+}
+
+/*blog section*/
+#blog-link{
+    background-color: #f157ff;
+    margin-top: -25px;
+}
+
+#blog-link .container #col .card .card-body{
+    text-align: left;
+}
+
+/*contact section*/
+#contact{
+    background-color: #ffd857;
+}
+
+#contact form label{
+    font-family: 'roboto', sans-serif;
+    font-size: 13pt;
+    font-weight: 500;
+}
+
+/*footer*/
+footer{
+    background-color: #8895c7;
+}
+
+footer .footer-content ul li a{
+    text-decoration: underline;
+    color:#000000;
+    font-family: 'roboto', sans-serif;
 }
