@@ -8,6 +8,11 @@ body{
     #carouselExample .carousel-item {
         height: 90vh !important;
     }
+    #clientReviewsCarousel .carousel-control-prev,
+    #clientReviewsCarousel .carousel-control-next {
+        margin-left: -100px !important;
+        margin-right: -100px !important;  
+    }
 }
 
 @media (max-width: 800px) { /*responsive text for small screen sizes*/
@@ -197,7 +202,7 @@ body{
 
 /*Membership options*/
 #memberships{
-    background-color: #ffb6b6;
+    background-color: #3553cb;
 }
 
 #membership-options .card {
@@ -212,7 +217,7 @@ body{
 
 /*Client Reviews*/
 #client-reviews{
-    background-color: #d9ffc5;
+    background-color: #339200;
 }
 
 #client-reviews h2{
@@ -228,8 +233,8 @@ body{
     margin-bottom: 0;
     top: 50%;
     transform: translateY(-50%);
-    margin-left: -110px;
-    margin-right: -110px;
+    margin-left: -20px;
+    margin-right: -20px;  
 }
 
 #clientReviewsCarousel .card{
