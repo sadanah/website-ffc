@@ -4,6 +4,12 @@ body{
 }
 
 /*Responsive media queries*/
+@media(min-width: 800px) { /*responsive text for large screen sizes*/
+    #carouselExample .carousel-item {
+        height: 90vh !important;
+    }
+}
+
 @media (max-width: 800px) { /*responsive text for small screen sizes*/
     #carouselExample .slider-text h1 {
         font-size: 45px;
@@ -24,6 +30,9 @@ body{
     #carouselExample button.carousel-control-prev, 
     #carouselExample button.carousel-control-next {
         margin-top: 20% !important;
+    }
+    #carouselExample .carousel-item {
+        height: 90vh !important;
     }
 }
 
@@ -52,7 +61,7 @@ body{
     #carouselExample .carousel-inner .carousel-item img {
         height: 70vh !important;
     }
-    #carouselExample .carousel{
+    #carouselExample .carousel-item{
         height: fit-content !important;
     }
 }
@@ -60,7 +69,6 @@ body{
 @media (max-width: 320px) { /*responsive text for small screen sizes*/
     #carouselExample .slider-text h1 {
         font-size: 25px;
-
     }
     #carouselExample .slider-text p{
         font-size: 12px;
@@ -112,6 +120,9 @@ body{
 }
 
 /*Slider styling*/
+#carouselExample{
+    background-color: #a6c1da;
+}
 @font-face {
     font-family: 'Sakana';
     src: url('res/Sakana.ttf') format('truetype');
@@ -148,7 +159,7 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('res/FFC_Slider1.jpg'); /* Replace with your image */
+    background-image: url('res/FFC_Slider1.jpg');
     background-size: cover; /* Cover the entire area */
     filter: blur(60px); /* Adjust the blur amount */
     opacity: 0.6; 
@@ -156,7 +167,6 @@ body{
 }
 
 #carouselExample .carousel-item {
-    height: 100vh; /* Full height of the viewport */
     background-size: cover; /* Cover the entire area */
     background-position: center; /* Center the image */
 }
@@ -185,6 +195,11 @@ body{
     object-fit: cover;
 }
 
+/*Membership options*/
+#memberships{
+    background-color: #ffb6b6;
+}
+
 #membership-options .card {
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
 }
@@ -195,6 +210,11 @@ body{
     font-size: 45px;
 }
 
+/*Client Reviews*/
+#client-reviews{
+    background-color: #d9ffc5;
+}
+
 #client-reviews h2{
     font-family: 'sakana', sans-serif;
     color: #282828;
@@ -202,11 +222,6 @@ body{
     margin-top: 10px;
 }
 
-.card-text{
-    color:#ed0000;
-}
-
-/*Client reviews*/
 #clientReviewsCarousel .carousel-control-prev,
 #clientReviewsCarousel .carousel-control-next {
     margin-top: 0;
