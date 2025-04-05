@@ -70,7 +70,7 @@
         <!--contact us-->
         <section id="contact" class="py-5">
             <div class="row col-lg-6 col-md-8 col-sm-8 col-10 mx-auto">
-                <form action="contact.php" method="POST">
+                <form action="process_contact.php" method="POST">
                     <h2 class="mb-5 text-center">Contact Us</h2>
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
@@ -88,6 +88,9 @@
                         <textarea class="form-control" id="message" name="message" rows="4" placeholder="Type your message here..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-danger">Send Message</button>
+                    <div id="customAlert" style="display:none; position:fixed; top:20px; right:20px; background:#28a745; color:white; padding:15px 25px; border-radius:5px; box-shadow: 0 0 10px rgba(0,0,0,0.2); z-index:9999;">
+                        Thank you for contacting us!
+                    </div>
                 </form>
             </div>
         </section>

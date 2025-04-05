@@ -71,26 +71,26 @@
         <!--contact us-->
         <section id="registration-form" class="py-5">
             <div class="row col-lg-6 col-md-8 col-sm-8 col-10 mx-auto">
-                <form>
+                <form action="process_registration.php" method="POST">
                     <h2 class="mb-5 text-center">Registration</h2>
                     <div class="mb-4">
                         <label for="name" class="form-label">Name</label>
                         <div class="col d-flex gap-2">
-                            <input type="text" class="form-control" id="fName" placeholder="First Name" required>
-                            <input type="text" class="form-control" id="lName" placeholder="Last Name" required>
+                            <input type="text" class="form-control" id="fName" name="fName" placeholder="First Name" required>
+                            <input type="text" class="form-control" id="lName" name="lName" placeholder="Last Name" required>
                         </div>
                     </div>
                     <div class="mb-4">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" required>
+                        <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="mb-4">
                         <label for="name" class="form-label">Phone Number</label>
-                        <input type="text" class="form-control" id="phoneNo" required>
+                        <input type="text" class="form-control" id="phoneNo" name="phoneNo" required>
                     </div>
                     <div class="mb-4">
                         <label for="program" class="form-label">Program</label>
-                        <select class="form-select" id="program" required>
+                        <select class="form-select" id="program" name="program" required>
                           <option value="" selected disabled>Select a program</option>
                           <option value="personal-training">Personal Training/option>
                           <option value="group-training">Group Training</option>
@@ -101,7 +101,7 @@
                       
                       <div class="mb-4">
                         <label for="duration" class="form-label">Membership Duration</label>
-                        <select class="form-select" id="duration" required>
+                        <select class="form-select" id="duration" name="duration" required>
                           <option value="" selected disabled>Select duration</option>
                           <option value="1-month">1 Month</option>
                           <option value="3-months">3 Months</option>
