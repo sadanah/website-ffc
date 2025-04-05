@@ -280,3 +280,23 @@ footer .footer-content ul li a{
     color:#000000;
     font-family: 'roboto', sans-serif;
 }
+
+
+
+/*About Page*/
+
+/*Our team*/
+#our-team{
+    background-color: #f157ff;
+}
+
+/*Facilities*/
+#facilities{
+    background-color: #a6f9ff;
+}
+
+#our-story #about-hero-image img{
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+}
