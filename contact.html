@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Fitzone Fitness Center</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <!--UPDATE THIS TO USE LOCAL ICON FILES-->
+        <style>
+            .navbar-nav .dropdown-menu {
+                position: static; /* Make the dropdown menu static */
+            }
+        </style>
+    </head>
+    <body>
+        <!--Navigation Bar-->
+        <nav class="navbar navbar-light bg-light navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="res/FFC_Logo.png" alt="Logo" style="height: 40px;"> <!--FFC Logo-->
+                </a>
+                <!--Creating responsive navigation toggle-->
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--Navigation bar links (collapses according to screen sizes)-->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item dropdown"> <!--Dropdown menu for About Us-->
+                            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                About Us
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                                <li><a class="dropdown-item" href="#">Our Story</a></li>
+                                <li><a class="dropdown-item" href="#">Vision & Mission</a></li>
+                                <li><a class="dropdown-item" href="#">Our Trainers</a></li>
+                                <li><a class="dropdown-item" href="#">Our Facilities</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown"> <!--Dropdown menu for Memberships-->
+                            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Memberships
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                                <li><a class="dropdown-item" href="#">Personal Training</a></li>
+                                <li><a class="dropdown-item" href="#">Group Training</a></li>
+                                <li><a class="dropdown-item" href="#">General Access</a></li>
+                                <li><a class="dropdown-item" href="#">Functional Training</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Register/Login</a></li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img src="res/profilee.svg" style="height: 40px; border-radius: 50%;">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--End of Navigation Bar-->
+
+        <!--contact us-->
+        <section id="contact" class="py-5">
+            <div class="row col-lg-6 col-md-8 col-sm-8 col-10 mx-auto">
+                <form>
+                    <h2 class="mb-5 text-center">Contact Us</h2>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Send Message</button>
+                </form>
+            </div>
+        </section>
+        <!--end of contact us-->
+        
+        <!--footer-->
+        <footer>
+            <div class="footer-content p-5 container">
+                <div class="row mx-auto">
+                    <!-- Link Container 1 -->
+                    <div class="col-6 col-md-3 mb-4">
+                        <h1>Links</h1>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Memberships</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Link Container 2 -->
+                    <div class="col-6 col-md-3 mb-4">
+                        <h1>Links</h1>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Memberships</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Map Container -->
+                    <div class="col-12 col-md-5">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d905.262346816871!2d80.35995476953639!3d7.481267629222137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae33b1832d262e9%3A0xed51c18e5a92717e!2sJail%20Fitness!5e1!3m2!1sen!2slk!4v1743825430210!5m2!1sen!2slk" width="300" height="200" style="border: solid 1px; border-radius: 5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center p-3">
+                <p>&copy; 2025 Fitzone Fitness Center. All rights reserved.</p>
+                <a href="#" class="text-dark">Privacy Policy</a> | 
+                <a href="#" class="text-dark">Terms of Service</a>
+            </div>
+        </footer>
+        <!--end of footer-->
+        <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
