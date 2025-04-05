@@ -300,3 +300,13 @@ footer .footer-content ul li a{
     height: 60vh;
     object-fit: cover;
 }
+
+/*Membership Page*/
+#membership-hero-image img{
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+}
+#our-programs{
+    background-color: #339200;
+}
