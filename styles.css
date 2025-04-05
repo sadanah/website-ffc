@@ -6,7 +6,7 @@ body{
 /*Responsive media queries*/
 @media (max-width: 800px) { /*responsive text for small screen sizes*/
     #carouselExample .slider-text h1 {
-        font-size: 30px;
+        font-size: 45px;
     }
     #carouselExample .slider-text p{
         font-size: 16px;
@@ -18,67 +18,76 @@ body{
     #carouselExample .slider-text .btn-danger{
         font-size: 14px;
     }
-    #memberships h1{
-        font-size: 45px;
+    #memberships h1, #client-reviews h2{
+        font-size: 40px !important;
     }
-    #carouselExample button.carousel-control-prev, button.carousel-control-next {
+    #carouselExample button.carousel-control-prev, 
+    #carouselExample button.carousel-control-next {
         margin-top: 20% !important;
-        margin-bottom: 25%;
     }
 }
 
 @media (max-width: 550px) { /*responsive text for small screen sizes*/
     #carouselExample .slider-text h1 {
-        font-size: 20px;
+        margin-top: 30% !important;
+        font-size: 30px;
     }
     #carouselExample .slider-text p{
         font-size: 14px;
     }
     #carouselExample .slider-text{
         position: aboslute;
-        top: 30%c!important;
+        top: 30% !important;
     }
     #carouselExample .slider-text .btn-danger{
         font-size: 12px;
     }
-    #memberships h1{
-        font-size: 30px;
+    #memberships h1, #client-reviews h2{
+        font-size: 30px !important;
     }
-    #carouselExample button.carousel-control-prev, button.carousel-control-next {
-        margin-top: 30% !important;
-        margin-bottom: 25%;
+    #carouselExample button.carousel-control-prev, 
+    #carouselExample button.carousel-control-next {
+        margin-top: 40% !important;
     }
     #carouselExample .carousel-inner .carousel-item img {
         height: 70vh !important;
     }
-    .carousel{
-        height: 70vh !important;
+    #carouselExample .carousel{
+        height: fit-content !important;
     }
 }
 
 @media (max-width: 320px) { /*responsive text for small screen sizes*/
     #carouselExample .slider-text h1 {
-        font-size: 16px;
+        font-size: 25px;
+
     }
     #carouselExample .slider-text p{
         font-size: 12px;
     }
     #carouselExample .slider-text{
-        position: aboslute;
-        top: 35% !important;
+        position: absolute;
+        top: 25% !important;
     }
     #carouselExample .slider-text .btn-danger{
         font-size: 10px;
     }
-    #memberships h1{
-        font-size: 25px;
+    #memberships h1, #client-reviews h2{
+        font-size: 30px !important;
+    } 
+    #carouselExample button.carousel-control-prev, 
+    #carouselExample button.carousel-control-next {
+        margin-top: 50% !important;
     }
-    #carouselExample button.carousel-control-prev, button.carousel-control-next {
-        margin-top: 35% !important;
-        width: 30px;
-        height: 30px;
+    #membership-options .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centers the cards */
     }
 }
+
+    
+
 
 /*Navbar styling*/
 .navbar{
@@ -146,13 +155,13 @@ body{
     z-index: -1; 
 }
 
-.carousel-item {
+#carouselExample .carousel-item {
     height: 100vh; /* Full height of the viewport */
     background-size: cover; /* Cover the entire area */
     background-position: center; /* Center the image */
 }
 
-button.carousel-control-prev, button.carousel-control-next {
+#image-slider-button {
     width: 50px;
     height: 50px;
     margin-top: 25%;
@@ -160,7 +169,7 @@ button.carousel-control-prev, button.carousel-control-next {
 }
 
 /*Cards styling*/
-.carousel{
+#carouselExample .carousel{
     height: 100vh;
     align-items: center;
     margin-right: 50px;
@@ -176,12 +185,38 @@ button.carousel-control-prev, button.carousel-control-next {
     object-fit: cover;
 }
 
-.card{
+#membership-options .card {
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
 }
 
 #memberships h1{
     font-family: 'sakana', sans-serif;
     color: #282828;
+    font-size: 45px;
 }
 
+#client-reviews h2{
+    font-family: 'sakana', sans-serif;
+    color: #282828;
+    font-size: 45px;
+    margin-top: 10px;
+}
+
+.card-text{
+    color:#ed0000;
+}
+
+/*Client reviews*/
+#clientReviewsCarousel .carousel-control-prev,
+#clientReviewsCarousel .carousel-control-next {
+    margin-top: 0;
+    margin-bottom: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: -110px;
+    margin-right: -110px;
+}
+
+#clientReviewsCarousel .card{
+    background-color: #a6c1da;
+}
