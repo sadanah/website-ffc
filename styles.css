@@ -3,6 +3,10 @@ body{
     min-width: 320px;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 .btn-danger{
     font-size: 13pt !important;
     font-weight: 500 !important;
@@ -34,7 +38,7 @@ body{
         position: aboslute;
         top: 40%;
     }
-    #carouselExample .slider-text .btn-danger{
+    .btn-danger{
         font-size: 14px;
     }
     h2{
@@ -46,6 +50,10 @@ body{
     }
     #carouselExample .carousel-item {
         height: 90vh !important;
+    }
+    #personal .row, #group .row, #functional .row, #general .row,
+    #personal .col, #group .col, #functional .col, #general .col{
+        padding: 20px !important;
     }
 }
 
@@ -59,10 +67,10 @@ body{
     }
     #carouselExample .slider-text{
         position: aboslute;
-        top: 30% !important;
+        top: 45% !important;
     }
-    #carouselExample .slider-text .btn-danger{
-        font-size: 12px;
+    .btn-danger{
+        font-size: 14px !important;
     }
     h2{
         font-size: 30px !important;
@@ -77,6 +85,13 @@ body{
     #carouselExample .carousel-item{
         height: fit-content !important;
     }
+    #membership-options .card {
+        width: 80% !important;
+    }
+    #personal .row, #group .row, #functional .row, #general .row,
+    #personal .col, #group .col, #functional .col, #general .col{
+        padding: 5px !important;
+    }
 }
 
 @media (max-width: 320px) { /*responsive text for small screen sizes*/
@@ -88,10 +103,10 @@ body{
     }
     #carouselExample .slider-text{
         position: absolute;
-        top: 25% !important;
+        top: 40% !important;
     }
-    #carouselExample .slider-text .btn-danger{
-        font-size: 10px;
+    .btn-danger{
+        font-size: 12px !important;
     }
     h2{
         font-size: 25px !important;
@@ -104,6 +119,16 @@ body{
         display: flex;
         flex-direction: column;
         align-items: center; /* Centers the cards */
+    }
+    #membership-options .card {
+        width: 90% !important;
+    }
+    iframe{
+        width: 250px !important;
+    }
+    #personal .row, #group .row, #functional .row, #general .row,
+    #personal .col, #group .col, #functional .col, #general .col{
+        padding: 0px !important;
     }
 }
 
@@ -315,9 +340,11 @@ footer .footer-content ul li a{
     height: 60vh;
     object-fit: cover;
 }
-#our-programs{
+#personal, #group, #functional, #general{
     background-color: #339200;
 }
+
+
 
 
 /*Registration page*/

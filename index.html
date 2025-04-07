@@ -16,7 +16,7 @@
         <!--Navigation Bar-->
         <nav class="navbar navbar-light bg-light navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                     <img src="res/FFC_Logo.png" alt="Logo" style="height: 40px;"> <!--FFC Logo-->
                 </a>
                 <!--Creating responsive navigation toggle-->
@@ -26,36 +26,36 @@
                 <!--Navigation bar links (collapses according to screen sizes)-->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item dropdown"> <!--Dropdown menu for About Us-->
-                            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="about.html" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 About Us
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                                <li><a class="dropdown-item" href="#">Our Story</a></li>
-                                <li><a class="dropdown-item" href="#">Vision & Mission</a></li>
-                                <li><a class="dropdown-item" href="#">Our Trainers</a></li>
-                                <li><a class="dropdown-item" href="#">Our Facilities</a></li>
+                                <li><a class="dropdown-item" href="about.html#our-story">Our Story</a></li>
+                                <li><a class="dropdown-item" href="about.html#vision-mission">Vision & Mission</a></li>
+                                <li><a class="dropdown-item" href="about.html#our-team">Our Trainers</a></li>
+                                <li><a class="dropdown-item" href="about.html#facilities">Our Facilities</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown"> <!--Dropdown menu for Memberships-->
                             <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Memberships
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                                <li><a class="dropdown-item" href="#">Personal Training</a></li>
-                                <li><a class="dropdown-item" href="#">Group Training</a></li>
-                                <li><a class="dropdown-item" href="#">General Access</a></li>
-                                <li><a class="dropdown-item" href="#">Functional Training</a></li>
+                            <ul class="dropdown-menu" aria-labelledby="aboutDropdown"> <!--CHATGPT how to navigate to div class within section-->
+                                <li><a class="dropdown-item" href="memberships.html#personal">Personal Training</a></li>
+                                <li><a class="dropdown-item" href="memberships.html#group">Group Training</a></li>
+                                <li><a class="dropdown-item" href="memberships.html#functional">Functional Training</a></li>
+                                <li><a class="dropdown-item" href="memberships.html#general">General Access</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Register/Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="registration.html">Register/Login</a></li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="#"><!--after login options-->
                                 <img src="res/profilee.svg" style="height: 40px; border-radius: 50%;">
                             </a>
                         </li>
@@ -227,13 +227,13 @@
         </section>
         <!--End of client reviews-->
 
-        <!--blog link 'Did you know?'--><!--fix width!!!!!-->
+        <!--blog link 'Did you know?'-->
         <section id="blog-link" class="py-5">
             <div class="container text-center">
-                <h2 class="mb-5">Did you know?</h2>
-                <div class="col-lg-10 col-md-10 col-10 mx-auto mb-4" id="col">
-                    <div class="card mx-5 border-danger" id="blog-card">
-                        <div class="card-body px-5">
+                <h2 class="mb-4">Did you know?</h2>
+                <div class="row col-lg-6 col-md-8 col-sm-8 col-10 mx-auto" id="col">
+                    <div class="card  border-danger" id="blog-card">
+                        <div class="card-body px-3">
                             <h5 class="card-title">Interesting Fact Interesting Fact!</h5>
                             <p class="card-text">Learn more interesting facts in our blog.</p>
                             <a href="#" class="btn btn-danger d-flex justify-content-center mt-4">Visit Blog</a>
@@ -272,7 +272,7 @@
 
         <!--footer-->
         <footer>
-            <div class="footer-content p-5 container">
+            <div class="footer-content container pt-5">
                 <div class="row mx-auto">
                     <!-- Link Container 1 -->
                     <div class="col-6 col-md-3 mb-4">
@@ -298,7 +298,7 @@
                     </div>
                     <!-- Map Container -->
                     <div class="col-12 col-md-5">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d905.262346816871!2d80.35995476953639!3d7.481267629222137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae33b1832d262e9%3A0xed51c18e5a92717e!2sJail%20Fitness!5e1!3m2!1sen!2slk!4v1743825430210!5m2!1sen!2slk" width="300" height="200" style="border: solid 1px; border-radius: 5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d905.262346816871!2d80.35995476953639!3d7.481267629222137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae33b1832d262e9%3A0xed51c18e5a92717e!2sJail%20Fitness!5e1!3m2!1sen!2slk!4v1743825430210!5m2!1sen!2slk" width="300px" height="200px" style="border: solid 1px; border-radius: 5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>

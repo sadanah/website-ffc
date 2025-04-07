@@ -18,7 +18,7 @@
         <!--Navigation Bar-->
         <nav class="navbar navbar-light bg-light navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                     <img src="res/FFC_Logo.png" alt="Logo" style="height: 40px;"> <!--FFC Logo-->
                 </a>
                 <!--Creating responsive navigation toggle-->
@@ -28,36 +28,36 @@
                 <!--Navigation bar links (collapses according to screen sizes)-->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item dropdown"> <!--Dropdown menu for About Us-->
-                            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="about.html" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 About Us
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                                <li><a class="dropdown-item" href="#">Our Story</a></li>
-                                <li><a class="dropdown-item" href="#">Vision & Mission</a></li>
-                                <li><a class="dropdown-item" href="#">Our Trainers</a></li>
-                                <li><a class="dropdown-item" href="#">Our Facilities</a></li>
+                                <li><a class="dropdown-item" href="about.html#our-story">Our Story</a></li>
+                                <li><a class="dropdown-item" href="about.html#vision-mission">Vision & Mission</a></li>
+                                <li><a class="dropdown-item" href="about.html#our-team">Our Trainers</a></li>
+                                <li><a class="dropdown-item" href="about.html#facilities">Our Facilities</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown"> <!--Dropdown menu for Memberships-->
                             <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Memberships
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                                <li><a class="dropdown-item" href="#">Personal Training</a></li>
-                                <li><a class="dropdown-item" href="#">Group Training</a></li>
-                                <li><a class="dropdown-item" href="#">General Access</a></li>
-                                <li><a class="dropdown-item" href="#">Functional Training</a></li>
+                            <ul class="dropdown-menu" aria-labelledby="aboutDropdown"> <!--CHATGPT how to navigate to div class within section-->
+                                <li><a class="dropdown-item" href="memberships.html#personal">Personal Training</a></li>
+                                <li><a class="dropdown-item" href="memberships.html#group">Group Training</a></li>
+                                <li><a class="dropdown-item" href="memberships.html#functional">Functional Training</a></li>
+                                <li><a class="dropdown-item" href="memberships.html#general">General Access</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Register/Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="registration.html">Register/Login</a></li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="#"><!--after login options-->
                                 <img src="res/profilee.svg" style="height: 40px; border-radius: 50%;">
                             </a>
                         </li>
@@ -77,13 +77,30 @@
                     </div>
                     <!-- Text -->
                     <div class="position-absolute top-50 start-50 translate-middle text-white px-3">
-                    <h6 class="display-6 fw-bold">Our Story</h6>
+                    <h2>Our Story</h2>
                     <p>Description description.</p>
                     </div>
                 </div>
             </div>
         </section>
         <!--End of Hero Image-->
+
+        <!--Our Team-->
+        <section id="vision-mission" class="pt-5">
+            <div class="container">
+                <div class="row justify-content-center px-5">
+                    <div class="col-lg-6 col-md-6 mb-5">
+                        <h2>Vision</h2>
+                        <p>Vision text: Meet our dedicated trainers who are here to help you achieve your fitness goals.</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 mb-5">
+                        <h2>Mission</h2>
+                        <p>Mission text: Meet our dedicated trainers who are here to help you achieve your fitness goals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End of our team-->
 
         <!--Our Team-->
         <section id="our-team" class="py-5">

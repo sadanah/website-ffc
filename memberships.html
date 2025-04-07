@@ -18,7 +18,7 @@
         <!--Navigation Bar-->
         <nav class="navbar navbar-light bg-light navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                     <img src="res/FFC_Logo.png" alt="Logo" style="height: 40px;"> <!--FFC Logo-->
                 </a>
                 <!--Creating responsive navigation toggle-->
@@ -28,36 +28,36 @@
                 <!--Navigation bar links (collapses according to screen sizes)-->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item dropdown"> <!--Dropdown menu for About Us-->
-                            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="about.html" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 About Us
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                                <li><a class="dropdown-item" href="#">Our Story</a></li>
-                                <li><a class="dropdown-item" href="#">Vision & Mission</a></li>
-                                <li><a class="dropdown-item" href="#">Our Trainers</a></li>
-                                <li><a class="dropdown-item" href="#">Our Facilities</a></li>
+                                <li><a class="dropdown-item" href="about.html#our-story">Our Story</a></li>
+                                <li><a class="dropdown-item" href="about.html#vision-mission">Vision & Mission</a></li>
+                                <li><a class="dropdown-item" href="about.html#our-team">Our Trainers</a></li>
+                                <li><a class="dropdown-item" href="about.html#facilities">Our Facilities</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown"> <!--Dropdown menu for Memberships-->
                             <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Memberships
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                                <li><a class="dropdown-item" href="#">Personal Training</a></li>
-                                <li><a class="dropdown-item" href="#">Group Training</a></li>
-                                <li><a class="dropdown-item" href="#">General Access</a></li>
-                                <li><a class="dropdown-item" href="#">Functional Training</a></li>
+                            <ul class="dropdown-menu" aria-labelledby="aboutDropdown"> <!--CHATGPT how to navigate to div class within section-->
+                                <li><a class="dropdown-item" href="memberships.html#personal">Personal Training</a></li>
+                                <li><a class="dropdown-item" href="memberships.html#group">Group Training</a></li>
+                                <li><a class="dropdown-item" href="memberships.html#functional">Functional Training</a></li>
+                                <li><a class="dropdown-item" href="memberships.html#general">General Access</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Register/Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="registration.html">Register/Login</a></li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="#"><!--after login options-->
                                 <img src="res/profilee.svg" style="height: 40px; border-radius: 50%;">
                             </a>
                         </li>
@@ -77,9 +77,9 @@
                     </div>
                     <!-- Text -->
                     <div class="position-absolute top-50 start-50 translate-middle text-white px-3">
-                    <h6 class="display-6 fw-bold">We have programs tailored to your goals</h6>
+                    <h2>Programs tailored to your goals</h2>
                     <br>
-                    <a href="#" class="btn btn-danger d-flex justify-content-center">Find your fit!</a>
+                    <a href="#" class="btn btn-danger px-3">Find your fit!</a>
                     </div>
                 </div>
             </div>
@@ -87,63 +87,67 @@
         <!--End of Hero Image-->
 
         <!--Our programs-->
-        <section id="our-programs" class="pt-5">
-            <div class="container">
-                <div class="row justify-content-center text-md-start pb-5">
-                    <div class="col-10 col-md-6 mb-4 px-auto">
-                        <h2>Program 1</h2>
-                        <p>Meet our dedicated trainers who are here to help you achieve your fitness goals.</p>
-                        <ul>
-                            <li>Benefit</li>
-                            <li>Benefit</li>
-                            <li>Benefit</li>
-                        </ul>
-                    </div>
-                    <div class="col-10 col-md-6 mb-4 text-center">
-                        <img src="res/FFC_Slider1.jpg" width="370px" class="img-fluid d-block mx-auto" alt="two people lifting weights">
-                    </div>
+        <section id="personal" class="pt-5">
+            <div class="row justify-content-center text-md-start px-5 py-5" id="program1">
+                <div class="col-10 col-md-6 mb-4">
+                    <h2>Personal Training</h2>
+                    <p>Meet our dedicated trainers who are here to help you achieve your fitness goals.</p>
+                    <ul>
+                        <li>Benefit</li>
+                        <li>Benefit</li>
+                        <li>Benefit</li>
+                    </ul>
                 </div>
-                <div class="row justify-content-center text-md-start pb-5">
-                    <div class="col-10 col-md-6 mb-4 px-auto">
-                        <h2>Program 2</h2>
-                        <p>Meet our dedicated trainers who are here to help you achieve your fitness goals.</p>
-                        <ul>
-                            <li>Benefit</li>
-                            <li>Benefit</li>
-                            <li>Benefit</li>
-                        </ul>
-                    </div>
-                    <div class="col-10 col-md-6 mb-4 text-center">
-                        <img src="res/FFC_Slider1.jpg" width="370px" class="img-fluid d-block mx-auto" alt="two people lifting weights">
-                    </div>
+                <div class="col-10 col-md-6 mb-4 text-center">
+                    <img src="res/FFC_Slider1.jpg" width="370px" class="img-fluid d-block mx-auto" alt="two people lifting weights">
                 </div>
-                <div class="row justify-content-center text-md-start pb-5">
-                    <div class="col-10 col-md-6 mb-4 px-auto">
-                        <h2>Program 3</h2>
-                        <p>Meet our dedicated trainers who are here to help you achieve your fitness goals.</p>
-                        <ul>
-                            <li>Benefit</li>
-                            <li>Benefit</li>
-                            <li>Benefit</li>
-                        </ul>
-                    </div>
-                    <div class="col-10 col-md-6 mb-4 text-center">
-                        <img src="res/FFC_Slider1.jpg" width="370px" class="img-fluid d-block mx-auto" alt="two people lifting weights">
-                    </div>
+            </div>
+        </section>
+        <section id="group">
+            <div class="row justify-content-center text-md-start px-5 py-5" id="program2">
+                <div class="col-10 col-md-6 mb-4 ">
+                    <h2>Group Training</h2>
+                    <p>Meet our dedicated trainers who are here to help you achieve your fitness goals.</p>
+                    <ul>
+                        <li>Benefit</li>
+                        <li>Benefit</li>
+                        <li>Benefit</li>
+                    </ul>
                 </div>
-                <div class="row justify-content-center text-md-start pb-5">
-                    <div class="col-10 col-md-6 mb-4 px-auto">
-                        <h2>Program 4</h2>
-                        <p>Meet our dedicated trainers who are here to help you achieve your fitness goals.</p>
-                        <ul>
-                            <li>Benefit</li>
-                            <li>Benefit</li>
-                            <li>Benefit</li>
-                        </ul>
-                    </div>
-                    <div class="col-10 col-md-6 mb-4 text-center">
-                        <img src="res/FFC_Slider1.jpg" width="370px" class="img-fluid d-block mx-auto" alt="two people lifting weights">
-                    </div>
+                <div class="col-10 col-md-6 mb-4 text-center">
+                    <img src="res/FFC_Slider1.jpg" width="370px" class="img-fluid d-block mx-auto" alt="two people lifting weights">
+                </div>
+            </div>
+        </section>
+        <section id="functional">
+            <div class="row justify-content-center text-md-start px-5 py-5" id="program3">
+                <div class="col-10 col-md-6 mb-4">
+                    <h2>Functional Training</h2>
+                    <p>Meet our dedicated trainers who are here to help you achieve your fitness goals.</p>
+                    <ul>
+                        <li>Benefit</li>
+                        <li>Benefit</li>
+                        <li>Benefit</li>
+                    </ul>
+                </div>
+                <div class="col-10 col-md-6 mb-4 text-center">
+                    <img src="res/FFC_Slider1.jpg" width="370px" class="img-fluid d-block mx-auto" alt="two people lifting weights">
+                </div>
+            </div>
+        </section>
+        <section id="general">
+            <div class="row justify-content-center text-md-start px-5 py-5" id="program4">
+                <div class="col-10 col-md-6 mb-4">
+                    <h2>General Access</h2>
+                    <p>Meet our dedicated trainers who are here to help you achieve your fitness goals.</p>
+                    <ul>
+                        <li>Benefit</li>
+                        <li>Benefit</li>
+                        <li>Benefit</li>
+                    </ul>
+                </div>
+                <div class="col-10 col-md-6 mb-4 text-center">
+                    <img src="res/FFC_Slider1.jpg" width="370px" class="img-fluid d-block mx-auto" alt="two people lifting weights">
                 </div>
             </div>
         </section>
