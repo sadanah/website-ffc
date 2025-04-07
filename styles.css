@@ -369,3 +369,29 @@ footer .footer-content ul li a{
 #blog-cards{
     background-color: #eee4ff;
 }
+
+/*Admin  Dash*/
+
+#admin-dash .dash-body{
+    font-family: Arial, sans-serif;
+      padding: 30px;
+}
+
+#admin-dash .dash-body h2 {
+    margin-top: 40px;
+}
+
+#admin-dash .dash-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+
+#admin-dash .dash-body th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#admin-dash .dash-body th {
+    background-color: #f2f2f2;
+}
