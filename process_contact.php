@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     if ($conn->query($sql) === TRUE) {
         echo "<script>alert('Thank you for contacting us $fName!'); window.location.href='contact.html';</script>";
     } else {
-        echo "Try again!";
+        echo "<script>alert('Please Try Again!'); window.location.href='contact.html';</script>";
     }
 }
 
