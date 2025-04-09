@@ -37,9 +37,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 // Handle success based on user role
                 if (data.role === 'customer') {
-                    window.location.href = 'customer_dash.html'; // Redirect to customer dashboard
+                    window.location.href = 'customer_dash.php'; // Redirect to customer dashboard
                 } else if (data.role === 'staff') {
-                    window.location.href = 'staff_dash.html'; // Redirect to staff dashboard
+                    window.location.href = 'staff_dash.php'; // Redirect to staff dashboard
                 } else if (data.role === 'admin') {
                     window.location.href = 'admin_dash.php'; // Redirect to admin dashboard
                 }

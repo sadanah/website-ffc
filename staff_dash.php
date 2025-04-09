@@ -2,14 +2,14 @@
 session_start();
 
 // Check if the user is logged in and has the correct role (admin)
-if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
-    // Redirect to another page if the user is not an admin
+if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'staff') {
+    // Redirect to another page if the user is not an staff
     header("Location: index.html"); // Redirect to the homepage
     exit();
 }
 
 // If the user is an admin, display the page content
-echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
+echo "Welcome to the Staff Dashboard, " . $_SESSION['username'];
 ?>
 
 
@@ -97,7 +97,6 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
             </div>
         </nav>
         <!--End of Navigation Bar-->
-    
         <!-- Login Modal -->
         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -123,9 +122,9 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
             </div>
         </div>
         <!-- End of Login Modal -->
-        <section id="admin-dash">
+        <section id="staff-dash">
             <div class="dash-body">
-                <h1>Admin Dashboard</h1>
+                <h1>Staff Dashboard</h1>
                 <!-- Contact Requests Section -->
                 <h3>Contact Requests</h3>
                 <table id="contactTable">
@@ -244,7 +243,7 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
                             <td>${reg.fName}</td>
                             <td>${reg.lName}</td>
                             <td>${reg.email}</td>
-                            <td>${reg.phoneNo}</td>
+                            <td>${reg.phoneNumber}</td>
                             <td>${reg.program}</td>
                             <td>${reg.duration}</td>
                         `;

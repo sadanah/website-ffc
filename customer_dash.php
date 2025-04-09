@@ -2,16 +2,15 @@
 session_start();
 
 // Check if the user is logged in and has the correct role (admin)
-if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
-    // Redirect to another page if the user is not an admin
+if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'customer') {
+    // Redirect to another page if the user is not a customer
     header("Location: index.html"); // Redirect to the homepage
     exit();
 }
 
 // If the user is an admin, display the page content
-echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
+echo "Welcome to the Customer Dashboard, " . $_SESSION['username'];
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -97,7 +96,6 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
             </div>
         </nav>
         <!--End of Navigation Bar-->
-    
         <!-- Login Modal -->
         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -123,29 +121,15 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
             </div>
         </div>
         <!-- End of Login Modal -->
-        <section id="admin-dash">
+        <!--Customer Dashboard Section-->
+        <section id="customer-dash">
             <div class="dash-body">
-                <h1>Admin Dashboard</h1>
-                <!-- Contact Requests Section -->
-                <h3>Contact Requests</h3>
-                <table id="contactTable">
+                <h1>Customer Dashboard</h1>
+                <!-- Profile details Section -->
+                <h3>Profile Details</h3>
+                <table id="profileTable">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Message</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody> <!--Table body will be displayed by JavaScript--> 
-                </table>
-                <!-- Registration Requests Section -->
-                <h3>Registration Requests</h3>
-                <table id="registrationTable">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email</th>
@@ -156,19 +140,65 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
                     </thead>
                     <tbody></tbody> <!--Table body will be displayed by JavaScript--> 
                 </table>
+                <!-- Schedule Section -->
+                <h3>Schedule</h3>
+                <table id="scheduleTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Trainer</th>
+                            <th>Info</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody> <!--Table body will be displayed by JavaScript--> 
+                </table>
             </div>
         </section>
-        <!--End of Admin Dashboard Section-->
-        <!--Footer Section-->
-        <footer class="footer text-center text-lg-start bg-light text-muted">
-            <div class="text-center p-4">
-                © 2025 Fitzone Fitness. All rights reserved.
+        <!--End of Customer Dashboard Section-->
+        <!--footer-->
+        <footer>
+            <div class="footer-content container pt-5">
+                <div class="row mx-auto">
+                    <!-- Link Container 1 -->
+                    <div class="col-6 col-md-3 mb-4">
+                        <h1>Links</h1>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Memberships</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Link Container 2 -->
+                    <div class="col-6 col-md-3 mb-4">
+                        <h1>Links</h1>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Memberships</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Map Container -->
+                    <div class="col-12 col-md-5">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d905.262346816871!2d80.35995476953639!3d7.481267629222137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae33b1832d262e9%3A0xed51c18e5a92717e!2sJail%20Fitness!5e1!3m2!1sen!2slk!4v1743825430210!5m2!1sen!2slk" width="300px" height="200px" style="border: solid 1px; border-radius: 5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center p-3">
+                <p>&copy; 2025 Fitzone Fitness Center. All rights reserved.</p>
+                <a href="#" class="text-dark">Privacy Policy</a> | 
+                <a href="#" class="text-dark">Terms of Service</a>
             </div>
         </footer>
-        <!--End of Footer Section-->
+        <!--end of footer-->
         <!--JavaScript and Bootstrap JS-->
         <script src="jquery.min.js_2.1.3/cdnjs/jquery.min.js"></script>
         <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script> 
+        <!--Script for dislaying login and profile dropdown-->
         <script>
             window.addEventListener('DOMContentLoaded', function () {
                 const loginBtn = document.getElementById('loginBtn');
@@ -217,44 +247,43 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
                 }
             });
         </script> 
+        <!--Script for loading data into tables-->
         <script>
-            fetch('load_data.php')
+            fetch('load_customer_data.php')
                 .then(response => response.json())
                 .then(data => {
-                    // Load Contact Requests
-                    const contactTableBody = document.querySelector("#contactTable tbody");
-                    data.contacts.forEach(contact => {
+                    // Load User Details
+                    const userTableBody = document.querySelector("#profileTable tbody");
+                    data.users.forEach(user => {
                         const row = document.createElement("tr");
                         row.innerHTML = `
-                            <td>${contact.conID}</td>
-                            <td>${contact.fName}</td>
-                            <td>${contact.lName}</td>
-                            <td>${contact.email}</td>
-                            <td>${contact.message}</td>
+                            <td>${user.fName}</td>
+                            <td>${user.lName}</td>
+                            <td>${user.email}</td>
+                            <td>${user.program}</td>
+                            <td>${user.duration}</td>
                         `;
-                        contactTableBody.appendChild(row);
+                        userTableBody.appendChild(row);
                     });
 
-                    // Load Registration Requests
-                    const regTableBody = document.querySelector("#registrationTable tbody");
-                    data.registrations.forEach(reg => {
+                    // Load Schedule Details
+                    const scheduleTableBody = document.querySelector("#scheduleTable tbody");
+                    data.schedule.forEach(sched => {
                         const row = document.createElement("tr");
                         row.innerHTML = `
-                            <td>${reg.regID}</td>
-                            <td>${reg.fName}</td>
-                            <td>${reg.lName}</td>
-                            <td>${reg.email}</td>
-                            <td>${reg.phoneNo}</td>
-                            <td>${reg.program}</td>
-                            <td>${reg.duration}</td>
+                            <td>${sched.date}</td>
+                            <td>${sched.time}</td>
+                            <td>${sched.trainer}</td>
+                            <td>${sched.info}</td>
                         `;
-                        regTableBody.appendChild(row);
+                        scheduleTableBody.appendChild(row);
                     });
                 })
                 .catch(error => {
                     console.error("Failed to load data:", error);
                 });
         </script>
+        <!--Script for login and logout functionality-->
         <script src="login.js" defer></script>
         <script src="logout.js" defer></script>
     </body>

@@ -411,28 +411,86 @@ footer .footer-content ul li a{
 }
 
 
-/*Admin  Dash*/
 
-#admin-dash .dash-body{
-    font-family: Arial, sans-serif;
-      padding: 30px;
+
+/* Common Dashboard Styling */
+.dash-body {
+    font-family: 'Roboto', Arial, sans-serif; /* Applying Roboto font */
+    padding: 30px;
+    background-color: #f7f7f7; /* Light off-white background */
 }
 
-#admin-dash .dash-body h2 {
+/* Header Styling for all Dashboards */
+.dash-body h1,
+.dash-body h3 {
     margin-top: 40px;
+    color: #333; /* Dark grey text color */
 }
 
-#admin-dash .dash-body table {
+/* Table Styling for all Dashboards */
+table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 40px;
+    border: 1px solid black; /* Black border for the table */
 }
 
-#admin-dash .dash-body th, td {
+/* Table Header Styling for all Dashboards */
+th {
+    background-color: #d3d3d3; /* Light grey background for header */
+    color: black;
     padding: 10px;
-    border: 1px solid #ddd;
+    border-right: 1px solid #d3d3d3; /* Border between columns */
 }
 
-#admin-dash .dash-body th {
-    background-color: #f2f2f2;
+/* Table Data Styling for all Dashboards */
+td {
+    padding: 10px;
+    background-color: #e2e2e2; /* Even lighter grey background for data cells */
+    color: black;
+    border-right: 1px solid #d3d3d3; /* Border between columns */
+}
+
+/* Alternating Row Background Color */
+tr:nth-child(even) td {
+    background-color: #f4f4f4; /* Even lighter grey background for even rows */
+}
+
+/* Table Row Hover Effect */
+tr:hover td {
+    background-color: #d0d0d0; /* Slightly darker grey for hover effect */
+}
+
+/* Dashboard Specific Styling */
+#admin-dash .dash-body,
+#staff-dash .dash-body,
+#customer-dash .dash-body {
+    font-family: 'Roboto', Arial, sans-serif; /* Ensure Roboto is used on all dashboards */
+}
+
+/* Ensure the tables have a light grey header and the correct borders in all dashboards */
+#admin-dash table,
+#staff-dash table,
+#customer-dash table {
+    border: 1px solid black; /* Black border for table */
+}
+
+#admin-dash th,
+#staff-dash th,
+#customer-dash th {
+    background-color: #d3d3d3; /* Light grey background for header */
+    border-right: 1px solid #000000; /* Border between columns */
+}
+
+#admin-dash td,
+#staff-dash td,
+#customer-dash td {
+    background-color: #f2f2f2; /* Even lighter grey background for table data */
+    border-right: 1px solid #000000; /* Border between columns */
+}
+
+#admin-dash tr:nth-child(even) td,
+#staff-dash tr:nth-child(even) td,
+#customer-dash tr:nth-child(even) td {
+    background-color: #fbfbfb; /* Even lighter grey background for even rows */
 }
