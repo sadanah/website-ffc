@@ -10,15 +10,16 @@ if ($conn->connect_error) {
 # Check if the request method is POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     # Sanitize user inputs
-    $fName = mysqli_real_escape_string($conn, $_POST["fName"] ?? "fName error");
-    $lName = mysqli_real_escape_string($conn, $_POST["lName"] ?? "lName error");
-    $email = mysqli_real_escape_string($conn, $_POST["email"] ?? "email error");
-    $phoneNo = mysqli_real_escape_string($conn, $_POST["phoneNo"] ?? "phoneNo error");
-    $username = mysqli_real_escape_string($conn, $_POST["username"] ?? "username error");
-    $password = $_POST["password"] ?? 'password error';
+    $fName = mysqli_real_escape_string($conn, $_POST["addFName"] ?? "fName error");
+    $lName = mysqli_real_escape_string($conn, $_POST["addLName"] ?? "lName error");
+    $email = mysqli_real_escape_string($conn, $_POST["addEmail"] ?? "email error");
+    $phoneNo = mysqli_real_escape_string($conn, $_POST["addPhoneNo"] ?? "phoneNo error");
+    $username = mysqli_real_escape_string($conn, $_POST["addUsername"] ?? "username error");
+    $password = $_POST["addPassword"] ?? 'password error';
     $conPassword = $_POST["conPassword"] ?? 'confirmPassword error';
-    $program = mysqli_real_escape_string($conn, $_POST["program"] ?? "program error");
-    $duration = mysqli_real_escape_string($conn, $_POST["duration"] ?? "duration error");
+    $program = mysqli_real_escape_string($conn, $_POST["addProgram"] ?? "NULL");
+    $duration = mysqli_real_escape_string($conn, $_POST["addDuration"] ?? "NULL");
+    $role = mysqli_real_escape_string($conn, $_POST["addRole"] ?? "role error");
 
     # Password hashing
     if ($password == $conPassword) {
@@ -42,12 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     # Insert data into the registrations table
-    $insertSql = "INSERT INTO registrations (fName, lName, email, phoneNo, username, password, program, duration) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $insertSql = "INSERT INTO registrations (fName, lName, email, phoneNo, username, password, program, duration, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($insertSql);
-    $stmt->bind_param("ssssssss", $fName, $lName, $email, $phoneNo, $username, $hashedPassword, $program, $duration);
+    $stmt->bind_param("sssssssss", $fName, $lName, $email, $phoneNo, $username, $hashedPassword, $program, $duration, $role);
     
     if ($stmt->execute()) {
-        echo "<script>alert('Thank you for joining us, $fName!'); window.location.href='index.html';</script>";
+        echo "<script>alert('Thank you for joining us, $fName!'); window.location.href='registration.html';</script>";
     } else {
         echo "<script>alert('An error occurred while registering. Please try again.'); window.location.href='registration.html';</script>";
     }

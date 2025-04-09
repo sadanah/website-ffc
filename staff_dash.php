@@ -151,6 +151,7 @@ echo "Welcome to the Staff Dashboard, " . $_SESSION['username'];
                             <th>Phone Number</th>
                             <th>Program</th>
                             <th>Duration</th>
+                            <th>Role</th>
                         </tr>
                     </thead>
                     <tbody></tbody> <!--Table body will be displayed by JavaScript--> 
@@ -216,6 +217,7 @@ echo "Welcome to the Staff Dashboard, " . $_SESSION['username'];
                 }
             });
         </script> 
+        
         <script>
             fetch('load_data.php')
                 .then(response => response.json())
@@ -243,9 +245,10 @@ echo "Welcome to the Staff Dashboard, " . $_SESSION['username'];
                             <td>${reg.fName}</td>
                             <td>${reg.lName}</td>
                             <td>${reg.email}</td>
-                            <td>${reg.phoneNumber}</td>
+                            <td>${reg.phoneNo}</td>
                             <td>${reg.program}</td>
                             <td>${reg.duration}</td>
+                            <td>${reg.role}</td>
                         `;
                         regTableBody.appendChild(row);
                     });

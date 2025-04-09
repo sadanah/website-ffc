@@ -25,6 +25,11 @@ html {
     h2{
         font-size: 45px !important;
     }
+    .modal {
+        padding-top: 40px !important;
+        padding-left: 10rem !important;
+        padding-right: 10rem !important;
+    }
 }
 
 @media (max-width: 800px) { /*responsive text for small screen sizes*/
@@ -54,6 +59,11 @@ html {
     #personal .row, #group .row, #functional .row, #general .row,
     #personal .col, #group .col, #functional .col, #general .col{
         padding: 20px !important;
+    }
+    .modal {
+        padding-top: 40px !important;
+        padding-left: 5rem !important;
+        padding-right: 5rem !important;
     }
 }
 
@@ -92,6 +102,11 @@ html {
     #personal .col, #group .col, #functional .col, #general .col{
         padding: 5px !important;
     }
+    .modal {
+        padding-top: 35px !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
 }
 
 @media (max-width: 320px) { /*responsive text for small screen sizes*/
@@ -129,6 +144,11 @@ html {
     #personal .row, #group .row, #functional .row, #general .row,
     #personal .col, #group .col, #functional .col, #general .col{
         padding: 0px !important;
+    }
+    .modal {
+        padding-top: 30px !important;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
     }
 }
 
@@ -493,4 +513,87 @@ tr:hover td {
 #staff-dash tr:nth-child(even) td,
 #customer-dash tr:nth-child(even) td {
     background-color: #fbfbfb; /* Even lighter grey background for even rows */
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 60px;
+    padding-left: 20rem;
+    padding-right: 20rem;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #d3d3d3;
+    margin: auto;
+    padding: 20px;
+    width: 50%;
+    border-radius: 10px;
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#modal-text {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 24pt;
+    font-weight: 900;
+    color: #000000;
+    margin: 0;
+}
+
+.close {
+    color: #ff1040;
+    font-size: 44px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal input, .modal select, .modal textarea {
+    border: 1px solid #ed0000;
+    font-family: 'roboto', sans-serif !important;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal label{
+    font-family: 'roboto', sans-serif !important;
+    font-size: 13pt !important;
+    font-weight: 500 !important;
+}
+
+
+/* Edit Button Style */
+.editBtn {
+    padding: 10px 20px;
+    background-color: #af4c4c; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Edit Button Hover Effect */
+.editBtn:hover {
+    background-color: #a04545; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+/* Edit Button Focus Effect */
+.editBtn:focus {
+    outline: none; /* Remove the default focus outline */
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.8); /* Add a glowing effect */
+}
+
+/* Edit Button Disabled Style */
+.editBtn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
