@@ -30,13 +30,18 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(data => {
             console.log(data);  // Check the response data
             if (data.success) {
+                // Store the username and role in sessionStorage
+                localStorage.setItem("username", data.username);
+                localStorage.setItem("role", data.role);
+
+
                 // Handle success based on user role
                 if (data.role === 'customer') {
                     window.location.href = 'customer_dash.html'; // Redirect to customer dashboard
                 } else if (data.role === 'staff') {
                     window.location.href = 'staff_dash.html'; // Redirect to staff dashboard
                 } else if (data.role === 'admin') {
-                    window.location.href = 'admin_dash.html'; // Redirect to admin dashboard
+                    window.location.href = 'admin_dash.php'; // Redirect to admin dashboard
                 }
             } else {
                 alert(data.message || 'Login failed! Please check your credentials.');
@@ -45,6 +50,6 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => {
             console.error('Error:', error);
             alert('An error occurred. Please try again later.');
-        });
+        });      
     });
 });
