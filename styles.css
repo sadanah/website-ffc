@@ -5,17 +5,24 @@ body{
 
 html {
     scroll-behavior: smooth;
-  }
+}
+
+@font-face {
+    font-family: 'Sakana';
+    src: url('res/Sakana.ttf') format('truetype');
+}
 
 .btn-danger{
     font-size: 13pt !important;
     font-weight: 500 !important;
+    border: 1px solid #ca2626 !important;
+    background-color: #d61111 !important;
 }
 
 /*Responsive media queries*/
 @media(min-width: 800px) { /*responsive text for large screen sizes*/
     #carouselExample .carousel-item {
-        height: 90vh !important;
+        height: 80vh !important;
     }
     #clientReviewsCarousel .carousel-control-prev,
     #clientReviewsCarousel .carousel-control-next {
@@ -33,6 +40,9 @@ html {
 }
 
 @media (max-width: 800px) { /*responsive text for small screen sizes*/
+    #carouselExample .carousel-item {
+        height: 80vh !important;
+    }
     #carouselExample .slider-text h1 {
         font-size: 45px;
     }
@@ -53,9 +63,6 @@ html {
     #carouselExample button.carousel-control-next {
         margin-top: 20% !important;
     }
-    #carouselExample .carousel-item {
-        height: 90vh !important;
-    }
     #personal .row, #group .row, #functional .row, #general .row,
     #personal .col, #group .col, #functional .col, #general .col{
         padding: 20px !important;
@@ -68,6 +75,9 @@ html {
 }
 
 @media (max-width: 550px) { /*responsive text for small screen sizes*/
+    #carouselExample .carousel {
+        height: 80vh !important;
+    }
     #carouselExample .slider-text h1 {
         margin-top: 30% !important;
         font-size: 30px;
@@ -110,6 +120,9 @@ html {
 }
 
 @media (max-width: 320px) { /*responsive text for small screen sizes*/
+    #carouselExample .carousel {
+        height: 80vh !important;
+    }
     #carouselExample .slider-text h1 {
         font-size: 25px;
     }
@@ -133,7 +146,7 @@ html {
     #membership-options .row {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centers the cards */
+        align-items: center;
     }
     #membership-options .card {
         width: 90% !important;
@@ -181,11 +194,6 @@ html {
     background-color: #ececec;
 }
 
-@font-face {
-    font-family: 'Sakana';
-    src: url('res/Sakana.ttf') format('truetype');
-}
-
 .slider-text{
     position: absolute; 
     top: 40%; 
@@ -198,7 +206,7 @@ html {
 .slider-text h1 {
     font-family: 'Sakana', sans-serif;
     font-size: 45px;
-    color: #ed0000;
+    color: #f40000;
     text-shadow: 0px 0px 50px rgba(0, 0, 0, 0.9);
 }
 
@@ -217,10 +225,10 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('res/FFC_Slider1.jpg');
+    background-color:#000000;
     background-size: cover; /* Cover the entire area */
-    filter: blur(60px); /* Adjust the blur amount */
-    opacity: 0.6; 
+    filter: blur(90px); /* Adjust the blur amount */
+    opacity: 0.8; 
     z-index: -1; 
 }
 
@@ -242,7 +250,7 @@ html {
 
 /*Cards styling*/
 #carouselExample .carousel{
-    height: 100vh;
+    height: 80vh;
     align-items: center;
     margin-right: 50px;
     background-color: #939393;
