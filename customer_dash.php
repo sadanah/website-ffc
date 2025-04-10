@@ -96,6 +96,7 @@ echo "Welcome to the Customer Dashboard, " . $_SESSION['username'];
             </div>
         </nav>
         <!--End of Navigation Bar-->
+
         <!-- Login Modal -->
         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -121,6 +122,7 @@ echo "Welcome to the Customer Dashboard, " . $_SESSION['username'];
             </div>
         </div>
         <!-- End of Login Modal -->
+
         <!--Customer Dashboard Section-->
         <section id="customer-dash">
             <div class="dash-body">
@@ -156,6 +158,7 @@ echo "Welcome to the Customer Dashboard, " . $_SESSION['username'];
             </div>
         </section>
         <!--End of Customer Dashboard Section-->
+
         <!--footer-->
         <footer>
             <div class="footer-content container pt-5">
@@ -195,58 +198,15 @@ echo "Welcome to the Customer Dashboard, " . $_SESSION['username'];
             </div>
         </footer>
         <!--end of footer-->
+
+        <!--SCRIPTS-->
         <!--JavaScript and Bootstrap JS-->
         <script src="jquery.min.js_2.1.3/cdnjs/jquery.min.js"></script>
         <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script> 
-        <!--Script for dislaying login and profile dropdown-->
-        <script>
-            window.addEventListener('DOMContentLoaded', function () {
-                const loginBtn = document.getElementById('loginBtn');
-                const profileDropdown = document.getElementById('profileDropdown');
-                const usernameDisplay = document.getElementById('usernameDisplay');
-                const username = localStorage.getItem("username");
 
-                // If the user is logged in
-                if (username) {
-                    if (loginBtn) loginBtn.style.display = "none"; // Hide Login Button
-                    if (profileDropdown) profileDropdown.style.display = "block"; // Show Profile Dropdown
-                    if (usernameDisplay) usernameDisplay.textContent = username; // Display Username
-                } else {
-                    if (loginBtn) loginBtn.style.display = "block"; // Show Login Button
-                    if (profileDropdown) profileDropdown.style.display = "none"; // Hide Profile Dropdown
-                }
+        <!--Role based navigation script-->
+        <script src="nav.js" defer></script>
 
-                // Adding correct links for dashboard and logout
-                const dashboardLink = document.getElementById('dashboardLink');
-                const logoutLink = document.getElementById('logoutLink');
-                const role = localStorage.getItem("role");
-
-                if (dashboardLink) {
-                    // Redirect based on user role
-                    if (role === 'customer') {
-                        dashboardLink.href = "customer_dash.php"; // Redirect to customer dashboard
-                    } else if (role === 'staff') {
-                        dashboardLink.href = "staff_dash.php"; // Redirect to staff dashboard
-                    } else if (role === 'admin') {
-                        dashboardLink.href = "admin_dash.php"; // Redirect to admin dashboard
-                    } else {
-                        // Fallback if no valid role is found
-                        dashboardLink.href = "index.html"; // Or any default page
-                    }
-                }
-
-                if (logoutLink) {
-                    logoutLink.addEventListener('click', function () {
-                        // Clear localStorage
-                        localStorage.removeItem("username");
-                        localStorage.removeItem("role");
-
-                        // Redirect to the login page
-                        window.location.href = "index.html"; // Redirect to login page
-                    });
-                }
-            });
-        </script> 
         <!--Script for loading data into tables-->
         <script>
             fetch('load_customer_data.php')
@@ -260,6 +220,7 @@ echo "Welcome to the Customer Dashboard, " . $_SESSION['username'];
                             <td>${user.fName}</td>
                             <td>${user.lName}</td>
                             <td>${user.email}</td>
+                            <td>${user.phoneNo}</td>
                             <td>${user.program}</td>
                             <td>${user.duration}</td>
                         `;
@@ -283,6 +244,7 @@ echo "Welcome to the Customer Dashboard, " . $_SESSION['username'];
                     console.error("Failed to load data:", error);
                 });
         </script>
+        
         <!--Script for login and logout functionality-->
         <script src="login.js" defer></script>
         <script src="logout.js" defer></script>

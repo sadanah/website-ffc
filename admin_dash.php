@@ -167,6 +167,7 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
             </div>
         </section>
         <!--End of Admin Dashboard Section-->
+
         <!--Footer Section-->
         <footer class="footer text-center text-lg-start bg-light text-muted">
             <div class="text-center p-4">
@@ -175,10 +176,7 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
         </footer>
         <!--End of Footer Section-->
 
-
-
-
-        <!--Modals-->
+        <!--MODALS-->
         <!-- Add User Modal -->
         <div id="addUserModal" class="modal">
             <div class="modal-content px-5">
@@ -248,292 +246,245 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
             </div>
         </div>
 
-<!-- Modify User Modal -->
-<div id="editUserModal" class="modal">
-    <div class="modal-content px-5">
-        <div class="modal-header mb-4">
-            <p id="modal-text">Modify User</p>
-            <span class="close" id="closeEditModal">&times;</span>
-        </div>
-        <form id="editUserForm" action="update_user.php" method="POST">
-            <!-- Hidden ID field -->
-            <input type="hidden" id="regID" name="regID">
-
-            <div class="mb-4">
-                <label for="editName" class="form-label">Name</label>
-                <div class="col d-flex gap-2">
-                    <input type="text" class="form-control" id="editFName" name="fName" placeholder="First Name" required>
-                    <input type="text" class="form-control" id="editLName" name="lName" placeholder="Last Name" required>
+        <!-- Modify User Modal -->
+        <div id="editUserModal" class="modal">
+            <div class="modal-content px-5">
+                <div class="modal-header mb-4">
+                    <p id="modal-text">Modify User</p>
+                    <span class="close" id="closeEditModal">&times;</span>
                 </div>
+                <form id="editUserForm" action="update_user.php" method="POST">
+                    <!-- Hidden ID field -->
+                    <input type="hidden" id="regID" name="regID">
+
+                    <div class="mb-4">
+                        <label for="editName" class="form-label">Name</label>
+                        <div class="col d-flex gap-2">
+                            <input type="text" class="form-control" id="editFName" name="fName" placeholder="First Name" required>
+                            <input type="text" class="form-control" id="editLName" name="lName" placeholder="Last Name" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="editEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="editEmail" name="email" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="editPhoneNo" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" id="editPhoneNo" name="phoneNo" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="editUsername" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="editUsername" name="username" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="editRole" class="form-label">Role</label>
+                        <select class="form-select" id="editRole" name="role" required>
+                            <option value="admin">Admin</option>
+                            <option value="staff">Staff</option>
+                            <option value="customer">Customer</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="editProgram" class="form-label">Program</label>
+                        <select class="form-select" id="editProgram" name="program">
+                            <option value="">None</option>
+                            <option value="personal-training">Personal Training</option>
+                            <option value="group-training">Group Training</option>
+                            <option value="functional-training">Functional Training</option>
+                            <option value="general-access">General Access</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="editDuration" class="form-label">Membership Duration</label>
+                        <select class="form-select" id="editDuration" name="duration">
+                            <option value="">None</option>
+                            <option value="1-month">1 Month</option>
+                            <option value="3-months">3 Months</option>
+                            <option value="6-months">6 Months</option>
+                            <option value="1-year">1 Year</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update User</button>
+                </form>
             </div>
+        </div>
+        <!-- End of Modify User Modal -->
 
-            <div class="mb-4">
-                <label for="editEmail" class="form-label">Email</label>
-                <input type="email" class="form-control" id="editEmail" name="email" required>
-            </div>
-
-            <div class="mb-4">
-                <label for="editPhoneNo" class="form-label">Phone Number</label>
-                <input type="text" class="form-control" id="editPhoneNo" name="phoneNo" required>
-            </div>
-
-            <div class="mb-4">
-                <label for="editUsername" class="form-label">Username</label>
-                <input type="text" class="form-control" id="editUsername" name="username" required>
-            </div>
-
-            <div class="mb-4">
-                <label for="editRole" class="form-label">Role</label>
-                <select class="form-select" id="editRole" name="role" required>
-                    <option value="admin">Admin</option>
-                    <option value="staff">Staff</option>
-                    <option value="customer">Customer</option>
-                </select>
-            </div>
-
-            <div class="mb-4">
-                <label for="editProgram" class="form-label">Program</label>
-                <select class="form-select" id="editProgram" name="program">
-                    <option value="">None</option>
-                    <option value="personal-training">Personal Training</option>
-                    <option value="group-training">Group Training</option>
-                    <option value="functional-training">Functional Training</option>
-                    <option value="general-access">General Access</option>
-                </select>
-            </div>
-
-            <div class="mb-4">
-                <label for="editDuration" class="form-label">Membership Duration</label>
-                <select class="form-select" id="editDuration" name="duration">
-                    <option value="">None</option>
-                    <option value="1-month">1 Month</option>
-                    <option value="3-months">3 Months</option>
-                    <option value="6-months">6 Months</option>
-                    <option value="1-year">1 Year</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Update User</button>
-        </form>
-    </div>
-</div>
+        <!-- Delete User Modal -->
+        <div id="deleteUserModal" class="modal">
+        </div>
+        <!-- End of Delete User Modal -->
+        <!-- END OF MODALS -->
 
 
-        <!-- End of Modals -->
-
-
-        <!--JavaScript and Bootstrap JS-->
+        <!--SCRIPTS-->
+        <!--Javascript and Bootstrap Libraries-->
         <script src="jquery.min.js_2.1.3/cdnjs/jquery.min.js"></script>
         <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script> 
-        <!--login logout session function script-->
-        <script>
-            window.addEventListener('DOMContentLoaded', function () {
-                const loginBtn = document.getElementById('loginBtn');
-                const profileDropdown = document.getElementById('profileDropdown');
-                const usernameDisplay = document.getElementById('usernameDisplay');
-                const username = localStorage.getItem("username");
 
-                // If the user is logged in
-                if (username) {
-                    if (loginBtn) loginBtn.style.display = "none"; // Hide Login Button
-                    if (profileDropdown) profileDropdown.style.display = "block"; // Show Profile Dropdown
-                    if (usernameDisplay) usernameDisplay.textContent = username; // Display Username
-                } else {
-                    if (loginBtn) loginBtn.style.display = "block"; // Show Login Button
-                    if (profileDropdown) profileDropdown.style.display = "none"; // Hide Profile Dropdown
-                }
+        <!--Role based navigation script-->
+        <script src="nav.js" defer></script> 
 
-                // Adding correct links for dashboard and logout
-                const dashboardLink = document.getElementById('dashboardLink');
-                const logoutLink = document.getElementById('logoutLink');
-                const role = localStorage.getItem("role");
-
-                if (dashboardLink) {
-                    // Redirect based on user role
-                    if (role === 'customer') {
-                        dashboardLink.href = "customer_dash.php"; // Redirect to customer dashboard
-                    } else if (role === 'staff') {
-                        dashboardLink.href = "staff_dash.php"; // Redirect to staff dashboard
-                    } else if (role === 'admin') {
-                        dashboardLink.href = "admin_dash.php"; // Redirect to admin dashboard
-                    } else {
-                        // Fallback if no valid role is found
-                        dashboardLink.href = "index.html"; // Or any default page
-                    }
-                }
-
-                if (logoutLink) {
-                    logoutLink.addEventListener('click', function () {
-                        // Clear localStorage
-                        localStorage.removeItem("username");
-                        localStorage.removeItem("role");
-
-                        // Redirect to the login page
-                        window.location.href = "index.html"; // Redirect to login page
-                    });
-                }
-            });
-        </script> 
         <!--Modals Script-->
         <script>
-document.addEventListener("DOMContentLoaded", function () {
-    // Modal logic for Add User
-    const addUserBtn = document.getElementById("addUserBtn");
-    const addUserModal = document.getElementById("addUserModal");
-    const closeAddModal = document.getElementById("closeAddModal");
+            document.addEventListener("DOMContentLoaded", function () {
+                // Modal logic for Add User
+                const addUserBtn = document.getElementById("addUserBtn");
+                const addUserModal = document.getElementById("addUserModal");
+                const closeAddModal = document.getElementById("closeAddModal");
 
-    // Show Add User modal
-    addUserBtn.onclick = () => addUserModal.style.display = "block";
-    // Close Add User modal
-    closeAddModal.onclick = () => addUserModal.style.display = "none";
-
-    // Modal logic for Edit User
-    const editUserModal = document.getElementById("editUserModal");
-    const closeEditModal = document.getElementById("closeEditModal");
-    closeEditModal.onclick = () => editUserModal.style.display = "none"; // Close Edit User modal
-
-    // Close modals when clicking the close button or outside the modal
-    window.onclick = e => {
-        if (e.target == addUserModal) addUserModal.style.display = "none"; // Close Add User modal if clicked outside
-        if (e.target == editUserModal) editUserModal.style.display = "none"; // Close Edit User modal if clicked outside
-    };
-
-    // Function to fetch user data and populate the modal for editing
-    function populateModal(regID) {
-        console.log("regID passed to populateModal:", regID); // Log regID
-
-        // Fetch user data from get_user.php using the regID
-        fetch(`get_user.php?regID=${regID}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    console.error(data.error);
-                    return;
-                }
-
-                // Check if modal elements exist before setting their values
-                const editFName = document.getElementById('editFName');
-                const editLName = document.getElementById('editLName');
-                const editEmail = document.getElementById('editEmail');
-                const editPhoneNo = document.getElementById('editPhoneNo');
-                const editUsername = document.getElementById('editUsername');
-                const editProgram = document.getElementById('editProgram');
-                const editDuration = document.getElementById('editDuration');
-                const editRole = document.getElementById('editRole');
-
-                if (editFName && editLName && editEmail && editPhoneNo && editUsername && editProgram && editDuration && editRole) {
-                    editFName.value = data.fName;
-                    editLName.value = data.lName;
-                    editEmail.value = data.email;
-                    editPhoneNo.value = data.phoneNo || ""; // Handle empty values
-                    editUsername.value = data.username || ""; 
-                    editProgram.value = data.program || "";
-                    editDuration.value = data.duration || "";
-                    editRole.value = data.role || "";
-                } else {
-                    console.error('Modal elements not found!');
-                }
-
-                // Also update the hidden regID field
-                const regIDField = document.getElementById('regID');
-                if (regIDField) {
-                    regIDField.value = data.regID; // Hidden input to store regID for submission
-                }
-            })
-            .catch(error => console.error('Error fetching user data:', error));
-    }
-
-    // When the "edit" button is clicked, open the modal and populate it
-    document.querySelectorAll('.edit-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const regID = this.getAttribute('data-id');
-            populateModal(regID);
-            editUserModal.style.display = "block";  // Show the edit user modal
-        });
-    });
-});
-
-
-    
-</script>
-
-        <!--load data script-->
-        <script>
-    fetch('load_data.php')
-        .then(response => response.json())
-        .then(data => {
-            // Load Contact Requests
-            const contactTableBody = document.querySelector("#contactTable tbody");
-            data.contacts.forEach(contact => {
-                const row = document.createElement("tr");
-                row.innerHTML = `
-                    <td>${contact.conID}</td>
-                    <td>${contact.fName}</td>
-                    <td>${contact.lName}</td>
-                    <td>${contact.email}</td>
-                    <td>${contact.message}</td>
-                `;
-                contactTableBody.appendChild(row);
-            });
-
-            // Load Registrations
-            const regTableBody = document.querySelector("#registrationTable tbody");
-            data.registrations.forEach(reg => {
-                const row = document.createElement("tr");
-                row.innerHTML = `
-                    <td>${reg.regID}</td>
-                    <td>${reg.fName}</td>
-                    <td>${reg.lName}</td>
-                    <td>${reg.email}</td>
-                    <td>${reg.phoneNo}</td>
-                    <td>${reg.username}</td>
-                    <td>${reg.program}</td>
-                    <td>${reg.duration}</td>
-                    <td>${reg.role}</td>
-                    <td><button class="editBtn" data-reg-id="${reg.regID}">Edit</button></td> <!-- Edit button with data-reg-id -->
-                `;
-                regTableBody.appendChild(row);
-            });
-
-            // Add event listeners for the "Edit" buttons
-            const editUserBtns = document.querySelectorAll(".editBtn");
-            function populateModal(regID) {
-        console.log("regID passed to populateModal:", regID); // Log regID
-
-        // Fetch user data from get_user.php using the regID
-        fetch(`get_user.php?regID=${regID}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    console.error(data.error);
-                    return;
-                }
-
-                // Populate the modal with the fetched user data
-                document.getElementById('editFName').value = data.fName;
-                document.getElementById('editLName').value = data.lName;
-                document.getElementById('editEmail').value = data.email;
-                document.getElementById('editPhoneNo').value = data.phoneNo || ""; // Handle empty values
-                document.getElementById('editUsername').value = data.username || ""; 
-                document.getElementById('editProgram').value = data.program || "";
-                document.getElementById('editDuration').value = data.duration || "";
-                document.getElementById('editRole').value = data.role || "";
-                document.getElementById('regID').value = data.regID; // Hidden input to store regID for submission
-            })
-            .catch(error => console.error('Error fetching user data:', error));
-    }
-            editUserBtns.forEach(btn => {
-                btn.onclick = function () {
-                    const regID = btn.getAttribute("data-reg-id"); // Get the regID from the data attribute
-                    editUserModal.style.display = "block"; // Show the modal
-                    populateModal(regID); // Fetch and populate the data for the selected user
+                // Show Add User modal
+                addUserBtn.onclick = () => addUserModal.style.display = "block";
+                // Close Add User modal
+                closeAddModal.onclick = () => addUserModal.style.display = "none";
+                // Modal logic for Edit User
+                const editUserModal = document.getElementById("editUserModal");
+                const closeEditModal = document.getElementById("closeEditModal");
+                closeEditModal.onclick = () => editUserModal.style.display = "none"; // Close Edit User modal
+                // Close modals when clicking the close button or outside the modal
+                window.onclick = e => {
+                    if (e.target == addUserModal) addUserModal.style.display = "none"; // Close Add User modal if clicked outside
+                    if (e.target == editUserModal) editUserModal.style.display = "none"; // Close Edit User modal if clicked outside
                 };
-            });
-        })
-        .catch(error => {
-            console.error("Failed to load data:", error);
-        });
-</script>
+                // Function to fetch user data and populate the modal for editing
+                function populateModal(regID) {
+                    console.log("regID passed to populateModal:", regID); // Log regID
+                    // Fetch user data from get_user.php using the regID
+                    fetch(`get_user.php?regID=${regID}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.error) {
+                                console.error(data.error);
+                                return;
+                            }
+                            // Check if modal elements exist before setting their values
+                            const editFName = document.getElementById('editFName');
+                            const editLName = document.getElementById('editLName');
+                            const editEmail = document.getElementById('editEmail');
+                            const editPhoneNo = document.getElementById('editPhoneNo');
+                            const editUsername = document.getElementById('editUsername');
+                            const editProgram = document.getElementById('editProgram');
+                            const editDuration = document.getElementById('editDuration');
+                            const editRole = document.getElementById('editRole');
 
+                            if (editFName && editLName && editEmail && editPhoneNo && editUsername && editProgram && editDuration && editRole) {
+                                editFName.value = data.fName;
+                                editLName.value = data.lName;
+                                editEmail.value = data.email;
+                                editPhoneNo.value = data.phoneNo || ""; // Handle empty values
+                                editUsername.value = data.username || ""; 
+                                editProgram.value = data.program || "";
+                                editDuration.value = data.duration || "";
+                                editRole.value = data.role || "";
+                            } else {
+                                console.error('Modal elements not found!');
+                            }
+
+                            // Also update the hidden regID field
+                            const regIDField = document.getElementById('regID');
+                            if (regIDField) {
+                                regIDField.value = data.regID; // Hidden input to store regID for submission
+                            }
+                        })
+                        .catch(error => console.error('Error fetching user data:', error));
+                }
+
+                // When the "edit" button is clicked, open the modal and populate it
+                document.querySelectorAll('.edit-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const regID = this.getAttribute('data-id');
+                        populateModal(regID);
+                        editUserModal.style.display = "block";  // Show the edit user modal
+                    });
+                });
+            });
+        </script>
+
+        <!--load data to tables script-->
+        <script>
+            fetch('load_data.php')
+                .then(response => response.json())
+                .then(data => {
+                    // Load Contact Requests
+                    const contactTableBody = document.querySelector("#contactTable tbody");
+                    data.contacts.forEach(contact => {
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${contact.conID}</td>
+                            <td>${contact.fName}</td>
+                            <td>${contact.lName}</td>
+                            <td>${contact.email}</td>
+                            <td>${contact.message}</td>
+                        `;
+                        contactTableBody.appendChild(row);
+                    });
+
+                    // Load Registrations
+                    const regTableBody = document.querySelector("#registrationTable tbody");
+                    data.registrations.forEach(reg => {
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${reg.regID}</td>
+                            <td>${reg.fName}</td>
+                            <td>${reg.lName}</td>
+                            <td>${reg.email}</td>
+                            <td>${reg.phoneNo}</td>
+                            <td>${reg.username}</td>
+                            <td>${reg.program}</td>
+                            <td>${reg.duration}</td>
+                            <td>${reg.role}</td>
+                            <td><button class="editBtn" data-reg-id="${reg.regID}">Edit</button></td> <!-- Edit button with data-reg-id -->
+                        `;
+                        regTableBody.appendChild(row);
+                    });
+
+                    // Add event listeners for the "Edit" buttons
+                    const editUserBtns = document.querySelectorAll(".editBtn");
+                    function populateModal(regID) {
+                    console.log("regID passed to populateModal:", regID); // Log regID
+
+                    // Fetch user data from get_user.php using the regID
+                    fetch(`get_user.php?regID=${regID}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.error) {
+                                console.error(data.error);
+                                return;
+                            }
+
+                            // Populate the modal with the fetched user data
+                            document.getElementById('editFName').value = data.fName;
+                            document.getElementById('editLName').value = data.lName;
+                            document.getElementById('editEmail').value = data.email;
+                            document.getElementById('editPhoneNo').value = data.phoneNo || ""; // Handle empty values
+                            document.getElementById('editUsername').value = data.username || ""; 
+                            document.getElementById('editProgram').value = data.program || "";
+                            document.getElementById('editDuration').value = data.duration || "";
+                            document.getElementById('editRole').value = data.role || "";
+                            document.getElementById('regID').value = data.regID; // Hidden input to store regID for submission
+                        })
+                        .catch(error => console.error('Error fetching user data:', error));
+                    }
+                        editUserBtns.forEach(btn => {
+                            btn.onclick = function () {
+                                const regID = btn.getAttribute("data-reg-id"); // Get the regID from the data attribute
+                                editUserModal.style.display = "block"; // Show the modal
+                                populateModal(regID); // Fetch and populate the data for the selected user
+                            };
+                        });
+                    })
+                    .catch(error => {
+                        console.error("Failed to load data:", error);
+                    });
+        </script>
+        
+        <!--Logout Login scripts-->
         <script src="login.js" defer></script>
         <script src="logout.js" defer></script>
     </body>

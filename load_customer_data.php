@@ -11,32 +11,40 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Fetch users and schedule details
-$userQuery = "SELECT fName, lName, email, program, duration FROM users";
-$schedQuery = "SELECT date, time, trainer, info FROM schedule";
+// Use prepared statement for user details
+$userQuery = "SELECT fName, lName, email, phoneNo, program, duration FROM registrations WHERE username = ?";
+$userStmt = $conn->prepare($userQuery);
+$userStmt->bind_param("s", $_SESSION['username']);
+$userStmt->execute();
+$userResult = $userStmt->get_result();
 
-// Execute the queries
-$userDetailsResult = mysqli_query($conn, $userQuery);
-$scheduleResult = mysqli_query($conn, $schedQuery);
-
-$userDetails = [];
-$scheduleDetails = [];
+// Use prepared statement for schedule
+$schedQuery = "SELECT date, time, trainer, info 
+               FROM schedule 
+               WHERE program IN (
+                   SELECT program FROM registrations WHERE username = ?
+               )";
+$schedStmt = $conn->prepare($schedQuery);
+$schedStmt->bind_param("s", $_SESSION['username']);
+$schedStmt->execute();
+$scheduleResult = $schedStmt->get_result();
 
 // Fetch user details
-while ($user = mysqli_fetch_assoc($userDetailsResult)) {
+$userDetails = [];
+while ($user = mysqli_fetch_assoc($userResult)) {
     $userDetails[] = $user;
 }
 
 // Fetch schedule details
+$scheduleDetails = [];
 while ($schedule = mysqli_fetch_assoc($scheduleResult)) {
     $scheduleDetails[] = $schedule;
 }
 
-// Return the data in JSON format
 echo json_encode([
     'users' => $userDetails,
     'schedule' => $scheduleDetails
 ]);
 
-mysqli_close($conn);
+$conn->close();
 ?>
