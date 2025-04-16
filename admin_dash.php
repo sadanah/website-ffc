@@ -141,6 +141,7 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
                             <th>Last Name</th>
                             <th>Email</th>
                             <th>Message</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody></tbody> <!--Table body will be displayed by JavaScript--> 
@@ -188,32 +189,32 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
                     <div class="mb-4">
                         <label for="addName" class="form-label">Name</label>
                         <div class="col d-flex gap-2">
-                            <input type="text" class="form-control" id="addFName" name="fName" placeholder="First Name" required>
-                            <input type="text" class="form-control" id="addLName" name="lName" placeholder="Last Name" required>
+                            <input type="text" class="form-control" id="addFName" name="addFName" placeholder="First Name" required>
+                            <input type="text" class="form-control" id="addLName" name="addLName" placeholder="Last Name" required>
                         </div>
                     </div>
                     <div class="mb-4">
                         <label for="addEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="addEmail" name="email" required>
+                        <input type="email" class="form-control" id="addEmail" name="addEmail" required>
                     </div>
                     <div class="mb-4">
                         <label for="addName" class="form-label">Phone Number</label>
-                        <input type="text" class="form-control" id="addPhoneNo" name="phoneNo" required>
+                        <input type="text" class="form-control" id="addPhoneNo" name="addPhoneNo" required>
                     </div>
                     <div class="mb-4">
                         <label for="addUsername" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="addUsername" name="username" required>
+                        <input type="text" class="form-control" id="addUsername" name="addUsername" required>
                     </div>
                     <div class="mb-4">
                         <label for="addPassword" class="form-label">Password</label>
                         <div class="col d-flex gap-2">
-                            <input type="password" class="form-control" id="addPassword" name="password" placeholder="Password" required>
+                            <input type="password" class="form-control" id="addPassword" name="addPassword" placeholder="Password" required>
                             <input type="password" class="form-control" id="conPassword" name="conPassword" placeholder="Confirm Password" required>
                         </div>
                     </div>
                     <div class="mb-4">
                         <label for="addRole" class="form-label">Role: *leave empty for customer accounts</label>
-                        <select class="form-select" id="addRole" name="role" required>
+                        <select class="form-select" id="addRole" name="addRole" required>
                             <option value="" selected disabled>Select a role</option>
                             <option value="admin">Admin</option>
                             <option value="staff">Staff</option>
@@ -222,7 +223,7 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
                     </div>  
                     <div class="mb-4">
                         <label for="addProgram" class="form-label">Program: *leave empty for admin/staff accounts.</label>
-                        <select class="form-select" id="addProgram" name="program">
+                        <select class="form-select" id="addProgram" name="addProgram">
                             <option value="" selected disabled>Select a program</option>
                             <option value="personal-training">Personal Training</option>
                             <option value="group-training">Group Training</option>
@@ -233,7 +234,7 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
                         
                         <div class="mb-4">
                         <label for="addDuration" class="form-label">Membership Duration: *leave empty for admin/staff accounts.</label>
-                        <select class="form-select" id="addDuration" name="duration">
+                        <select class="form-select" id="addDuration" name="addDuration">
                             <option value="" selected disabled>Select duration</option>
                             <option value="1-month">1 Month</option>
                             <option value="3-months">3 Months</option>
@@ -241,7 +242,7 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
                             <option value="1-year">1 Year</option>
                         </select>
                         </div>
-                    <button type="submit" class="btn btn-danger">Send Message</button>
+                    <button type="submit" class="btn btn-danger mt-5">Add New User</button>
                 </form>
             </div>
         </div>
@@ -310,7 +311,7 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
                             <option value="1-year">1 Year</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Update User</button>
+                    <button type="submit" class="btn btn-danger">Update User</button>
                 </form>
             </div>
         </div>
@@ -343,15 +344,18 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
                 addUserBtn.onclick = () => addUserModal.style.display = "block";
                 // Close Add User modal
                 closeAddModal.onclick = () => addUserModal.style.display = "none";
+                
                 // Modal logic for Edit User
                 const editUserModal = document.getElementById("editUserModal");
                 const closeEditModal = document.getElementById("closeEditModal");
                 closeEditModal.onclick = () => editUserModal.style.display = "none"; // Close Edit User modal
+
                 // Close modals when clicking the close button or outside the modal
                 window.onclick = e => {
                     if (e.target == addUserModal) addUserModal.style.display = "none"; // Close Add User modal if clicked outside
                     if (e.target == editUserModal) editUserModal.style.display = "none"; // Close Edit User modal if clicked outside
                 };
+
                 // Function to fetch user data and populate the modal for editing
                 function populateModal(regID) {
                     console.log("regID passed to populateModal:", regID); // Log regID
@@ -421,9 +425,16 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
                             <td>${contact.lName}</td>
                             <td>${contact.email}</td>
                             <td>${contact.message}</td>
+                                <td><button class="btn" id="respond-button">Respond</button> <!-- Edit button with data-reg-id -->
+                                <button class="btn" id="respond-button">Delete</button>
+                            </td> <!-- Edit button with data-reg-id -->
                         `;
                         contactTableBody.appendChild(row);
                     });
+
+                    // Add event listeners for the "Edit Con" buttons
+                    // Direct to gmail page
+                    
 
                     // Load Registrations
                     const regTableBody = document.querySelector("#registrationTable tbody");
@@ -439,7 +450,10 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
                             <td>${reg.program}</td>
                             <td>${reg.duration}</td>
                             <td>${reg.role}</td>
-                            <td><button class="editBtn" data-reg-id="${reg.regID}">Edit</button></td> <!-- Edit button with data-reg-id -->
+                            <td>
+                                <button class="editBtn" data-reg-id="${reg.regID}">Edit</button>
+                                <button class="btn" id="respond-button">Delete</button>
+                            </td> <!-- Edit button with data-reg-id -->
                         `;
                         regTableBody.appendChild(row);
                     });
@@ -471,17 +485,17 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
                         })
                         .catch(error => console.error('Error fetching user data:', error));
                     }
-                        editUserBtns.forEach(btn => {
-                            btn.onclick = function () {
-                                const regID = btn.getAttribute("data-reg-id"); // Get the regID from the data attribute
-                                editUserModal.style.display = "block"; // Show the modal
-                                populateModal(regID); // Fetch and populate the data for the selected user
-                            };
-                        });
-                    })
-                    .catch(error => {
-                        console.error("Failed to load data:", error);
+                    editUserBtns.forEach(btn => {
+                        btn.onclick = function () {
+                            const regID = btn.getAttribute("data-reg-id"); // Get the regID from the data attribute
+                            editUserModal.style.display = "block"; // Show the modal
+                            populateModal(regID); // Fetch and populate the data for the selected user
+                        };
                     });
+                })
+                .catch(error => {
+                    console.error("Failed to load data:", error);
+                });
         </script>
         
         <!--Logout Login scripts-->

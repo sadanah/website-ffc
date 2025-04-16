@@ -17,15 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = mysqli_real_escape_string($conn, $_POST["addUsername"] ?? "username error");
     $password = $_POST["addPassword"] ?? 'password error';
     $conPassword = $_POST["conPassword"] ?? 'confirmPassword error';
-    $program = mysqli_real_escape_string($conn, $_POST["addProgram"] ?? "NULL");
-    $duration = mysqli_real_escape_string($conn, $_POST["addDuration"] ?? "NULL");
+    $program = mysqli_real_escape_string($conn, $_POST["addProgram"] ?? "program error");
+    $duration = mysqli_real_escape_string($conn, $_POST["addDuration"] ?? "duration error");
     $role = mysqli_real_escape_string($conn, $_POST["addRole"] ?? "role error");
 
     # Password hashing
     if ($password == $conPassword) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    } else {
-        echo "<script>alert('Password mismatch!'); window.location.href='registration.html';</script>";
+    }else{
+        echo "<script>alert('Password mismatch!'); window.location.href='admin_dash.php';</script>";
         exit;
     }
 
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     if ($result->num_rows > 0) {
         // Username exists, show error
-        echo "<script>alert('Username already taken! Please choose a different username.'); window.location.href='registration.html';</script>";
+        echo "<script>alert('Username already taken! Please choose a different username.'); window.location.href='admin_dash.php';</script>";
         exit;
     }
 
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($stmt->execute()) {
         echo "<script>alert('Thank you for joining us, $fName!'); window.location.href='registration.html';</script>";
     } else {
-        echo "<script>alert('An error occurred while registering. Please try again.'); window.location.href='registration.html';</script>";
+        echo "<script>alert('An error occurred while registering. Please try again.'); window.location.href='admin_dash.php';</script>";
     }
 }
 
