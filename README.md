@@ -28,6 +28,11 @@ This website includes:
 - Simple and easy to understand code structure
 
 
+## How to View Website Online
+
+You can view the deployed website at `https://website-ffc.vercel.app/` but to engage with the functionalities, you must run the website with a local server that has the database file. Steps are mentioned below.
+
+
 ## How to Run Locally
 
 1. Clone the repository:
