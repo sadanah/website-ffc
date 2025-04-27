@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($password == $conPassword) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     }else{
-        echo "<script>alert('Password mismatch!'); window.location.href='admin_dash.php';</script>";
+        echo "<script>alert('Password mismatch!');</script>";
         exit;
     }
 
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     if ($result->num_rows > 0) {
         // Username exists, show error
-        echo "<script>alert('Username already taken! Please choose a different username.'); window.location.href='admin_dash.php';</script>";
+        echo "<script>alert('Username already taken! Please choose a different username.');</script>";
         exit;
     }
 
@@ -48,9 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("sssssssss", $fName, $lName, $email, $phoneNo, $username, $hashedPassword, $program, $duration, $role);
     
     if ($stmt->execute()) {
-        echo "<script>alert('Thank you for joining us, $fName!'); window.location.href='registration.html';</script>";
+        echo "<script>alert('Thank you for joining us, $fName!');</script>";
     } else {
-        echo "<script>alert('An error occurred while registering. Please try again.'); window.location.href='admin_dash.php';</script>";
+        echo "<script>alert('An error occurred while registering. Please try again.');</script>";
     }
 }
 
