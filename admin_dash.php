@@ -146,6 +146,7 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
                     </thead>
                     <tbody></tbody> <!--Table body will be displayed by JavaScript--> 
                 </table>
+                <div id="contactPagination" class="pagination"></div>
                 <!-- Registration Requests Section -->
                 <h3>Registration Requests</h3>
                 <table id="registrationTable">
@@ -165,6 +166,7 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
                     </thead>
                     <tbody></tbody> <!--Table body will be displayed by JavaScript--> 
                 </table>
+                <div id="registrationPagination" class="pagination"></div>
             </div>
         </section>
         <!--End of Admin Dashboard Section-->
@@ -331,6 +333,54 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
 
         <!--Role based navigation script-->
         <script src="nav.js" defer></script> 
+
+        <!--Pagination Script-->
+        <script>
+function paginateTable(tableId, paginationId, rowsPerPage) {
+    const table = document.getElementById(tableId);
+    const tbody = table.querySelector("tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+    const pagination = document.getElementById(paginationId);
+    let currentPage = 1;
+    const totalPages = Math.ceil(rows.length / rowsPerPage);
+
+    function showPage(page) {
+        const start = (page - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+
+        rows.forEach((row, index) => {
+            row.style.display = (index >= start && index < end) ? "" : "none";
+        });
+
+        [...pagination.children].forEach(btn => btn.classList.remove("active"));
+        if (pagination.children[page - 1]) pagination.children[page - 1].classList.add("active");
+    }
+
+    function createPagination() {
+        pagination.innerHTML = "";
+        for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement("button");
+            btn.textContent = i;
+            btn.classList.add("page-btn");
+            if (i === currentPage) btn.classList.add("active");
+
+            btn.addEventListener("click", () => {
+                currentPage = i;
+                showPage(currentPage);
+            });
+
+            pagination.appendChild(btn);
+        }
+    }
+
+    createPagination();
+    showPage(currentPage);
+}
+
+paginateTable("contactTable", "contactPagination", 5); // show 5 rows per page
+paginateTable("registrationTable", "registrationPagination", 5);
+</script>
+
 
         <!--Modals Script-->
         <script>
