@@ -28,6 +28,11 @@ This website includes:
 - Simple and easy to understand code structure
 
 
+## How to View Website Online
+
+You can view the deployed website at `https://website-ffc.vercel.app/` but to engage with the functionalities, you must run the website with a local server that has the database file. Steps are mentioned below.
+
+
 ## How to Run Locally
 
 1. Clone the repository:
@@ -63,6 +68,6 @@ Pull requests are welcome! If you have suggestions or improvements, feel free to
 
 For any inquiries or collaborations, please reach out at:  
 **Email:** sadana.herath@email.com  
-**Instagram:** [www.instagram.com]([https://www.instagram.com](https://www.instagram.com/sadanaherath/))  
+**Instagram:** [www.instagram.com](https://www.instagram.com/sadanaherath/)  
 **LinkedIn:** [www.linkedin.com](https://www.linkedin.com/in/sadana-herath-b686b4218/)
 
