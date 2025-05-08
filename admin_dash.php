@@ -321,8 +321,20 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
 
         <!-- Delete User Modal -->
         <div id="deleteUserModal" class="modal">
+            <div class="modal-content px-5">
+                <div class="modal-header mb-4">
+                    <p id="deleteModalText">Delete User</p>
+                    <span class="close" id="closeDeleteModal">&times;</span>
+                </div>
+                <p id="confirmMessage"></p>
+                <form id="deleteUserForm" action="delete_user.php" method="POST">
+                    <!-- Hidden ID field -->
+                    <input type="hidden" id="deleteRegID" name="regID">
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Confirm Delete</button>
+                    <button type="button" class="btn btn-danger" id="cancelDeleteBtn">Cancel</button>
+                </form>
+            </div>
         </div>
-        <!-- End of Delete User Modal -->
         <!-- END OF MODALS -->
 
 
@@ -333,53 +345,6 @@ echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
 
         <!--Role based navigation script-->
         <script src="nav.js" defer></script> 
-
-        <!--Pagination Script-->
-        <script>
-function paginateTable(tableId, paginationId, rowsPerPage) {
-    const table = document.getElementById(tableId);
-    const tbody = table.querySelector("tbody");
-    const rows = Array.from(tbody.querySelectorAll("tr"));
-    const pagination = document.getElementById(paginationId);
-    let currentPage = 1;
-    const totalPages = Math.ceil(rows.length / rowsPerPage);
-
-    function showPage(page) {
-        const start = (page - 1) * rowsPerPage;
-        const end = start + rowsPerPage;
-
-        rows.forEach((row, index) => {
-            row.style.display = (index >= start && index < end) ? "" : "none";
-        });
-
-        [...pagination.children].forEach(btn => btn.classList.remove("active"));
-        if (pagination.children[page - 1]) pagination.children[page - 1].classList.add("active");
-    }
-
-    function createPagination() {
-        pagination.innerHTML = "";
-        for (let i = 1; i <= totalPages; i++) {
-            const btn = document.createElement("button");
-            btn.textContent = i;
-            btn.classList.add("page-btn");
-            if (i === currentPage) btn.classList.add("active");
-
-            btn.addEventListener("click", () => {
-                currentPage = i;
-                showPage(currentPage);
-            });
-
-            pagination.appendChild(btn);
-        }
-    }
-
-    createPagination();
-    showPage(currentPage);
-}
-
-paginateTable("contactTable", "contactPagination", 5); // show 5 rows per page
-paginateTable("registrationTable", "registrationPagination", 5);
-</script>
 
 
         <!--Modals Script-->
@@ -457,6 +422,39 @@ paginateTable("registrationTable", "registrationPagination", 5);
                         editUserModal.style.display = "block";  // Show the edit user modal
                     });
                 });
+                
+                // Modal logic for Delete User
+                const deleteUserModal = document.getElementById("deleteUserModal");
+                const closeDeleteModal = document.getElementById("closeDeleteModal");
+                const cancelDeleteBtn = document.getElementById("cancelDeleteBtn");
+                const confirmMessage = document.getElementById("confirmMessage");
+                const deleteRegIDField = document.getElementById("deleteRegID");
+
+                // Close Delete modal
+                closeDeleteModal.onclick = () => deleteUserModal.style.display = "none";
+                cancelDeleteBtn.onclick = () => deleteUserModal.style.display = "none";
+
+                // Close modal when clicking outside
+                window.onclick = e => {
+                    if (e.target == deleteUserModal) deleteUserModal.style.display = "none";
+                };
+                // When "delete" button is clicked
+                document.querySelectorAll('.deleteBtn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const regID = this.getAttribute('data-id');
+                        const username = this.getAttribute('data-username');
+
+                        // Update the modal text
+                        confirmMessage.textContent = `Are you sure you want to delete user with ID: ${regID} and Username: ${username}?`;
+
+                        // Set the hidden input value
+                        deleteRegIDField.value = regID;
+
+                        // Show the modal
+                        deleteUserModal.style.display = "block";
+                    });
+                });
+                
             });
         </script>
 
@@ -475,8 +473,8 @@ paginateTable("registrationTable", "registrationPagination", 5);
                             <td>${contact.lName}</td>
                             <td>${contact.email}</td>
                             <td>${contact.message}</td>
-                                <td><button class="btn" id="respond-button">Respond</button> <!-- Edit button with data-reg-id -->
-                                <button class="btn" id="respond-button">Delete</button>
+                                <td><button class="respondButton" data-email="${contact.email}">Respond</button> <!-- Edit button with data-reg-id -->
+                                <button class="deleteContactBtn" data-con-id="${contact.conID}">Delete</button>
                             </td> <!-- Edit button with data-reg-id -->
                         `;
                         contactTableBody.appendChild(row);
@@ -502,7 +500,8 @@ paginateTable("registrationTable", "registrationPagination", 5);
                             <td>${reg.role}</td>
                             <td>
                                 <button class="editBtn" data-reg-id="${reg.regID}">Edit</button>
-                                <button class="btn" id="respond-button">Delete</button>
+                                <button class="deleteBtn" data-id="${reg.regID}" data-username="${reg.username}">Delete</button>
+
                             </td> <!-- Edit button with data-reg-id -->
                         `;
                         regTableBody.appendChild(row);
@@ -542,6 +541,72 @@ paginateTable("registrationTable", "registrationPagination", 5);
                             populateModal(regID); // Fetch and populate the data for the selected user
                         };
                     });
+                    
+                    // Add event listeners for Delete buttons
+                    const deleteUserBtns = document.querySelectorAll(".deleteBtn");
+                    deleteUserBtns.forEach(btn => {
+                        btn.addEventListener("click", function () {
+                            const regID = btn.getAttribute("data-id");
+                            if (confirm(`Are you sure you want to delete user ID ${regID}?`)) {
+                                // Send POST request to delete_user.php
+                                fetch('delete_user.php', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/x-www-form-urlencoded',
+                                    },
+                                    body: `regID=${encodeURIComponent(regID)}`
+                                })
+                                .then(response => response.text())
+                                .then(result => {
+                                    console.log(result);
+                                    alert('User deleted.');
+                                    location.reload(); // Reload table
+                                })
+                                .catch(error => {
+                                    console.error('Error deleting user:', error);
+                                });
+                            }
+                        });
+                    });
+
+                    // Add event listeners for Delete buttons
+                    const deleteContactBtns = document.querySelectorAll(".deleteContactBtn");
+                    deleteContactBtns.forEach(btn => {
+                        btn.addEventListener("click", function () {
+                            const conID = btn.getAttribute("data-con-id");
+                            if (confirm(`Delete contact ID ${conID}?`)) {
+                                // Send POST request to delete_user.php
+                                fetch('delete_contact.php', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/x-www-form-urlencoded',
+                                    },
+                                    body: `conID=${encodeURIComponent(conID)}`
+                                })
+                                .then(response => response.text())
+                                .then(result => {
+                                    console.log(result);
+                                    alert('Contact request deleted.');
+                                    location.reload(); // Reload table
+                                })
+                                .catch(error => {
+                                    console.error('Error deleting contact:', error);
+                                });
+                            }
+                        });
+                    });
+                    // Add event listeners for Respond buttons
+                    document.querySelectorAll('.respondButton').forEach(button => {
+                        button.addEventListener('click', function() {
+                            const email = this.getAttribute('data-email');
+                            
+                            // Open Gmail compose window
+                            window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent('Thank you for contacting us!')}&body=${encodeURIComponent('Dear Customer,')}`, '_blank');
+
+                        });
+                    });
+
+
                 })
                 .catch(error => {
                     console.error("Failed to load data:", error);

@@ -591,62 +591,22 @@ tr:hover td {
 }
 
 
-/* Edit Button Style */
-.editBtn {
+button.editBtn, button.deleteBtn, button.respondButton, button.deleteContactBtn {
     padding: 10px 20px;
-    background-color: #af4c4c; /* Green background */
-    color: white;
-    border: none;
-    border-radius: 5px;
+    background-color: #af4c4c !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 5px !important;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    transition: transform 0.2s ease;
 }
 
-/* Edit Button Hover Effect */
-.editBtn:hover {
-    background-color: #a04545; /* Darker green on hover */
-    transform: scale(1.05); /* Slightly enlarge the button */
-}
-
-/* Edit Button Focus Effect */
-.editBtn:focus {
-    outline: none; /* Remove the default focus outline */
-    box-shadow: 0 0 5px rgba(255, 0, 0, 0.8); /* Add a glowing effect */
-}
-
-/* Edit Button Disabled Style */
-.editBtn:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-/* Respond Button Style */
-#respond-button {
-    padding: 10px 20px;
-    background-color: #af4c4c; /* Green background */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-/* Edit Button Hover Effect */
-#respond-button:hover {
-    background-color: #a04545; /* Darker green on hover */
-    transform: scale(1.05); /* Slightly enlarge the button */
-}
-
-/* Edit Button Focus Effect */
-#respond-button:focus {
-    outline: none; /* Remove the default focus outline */
-    box-shadow: 0 0 5px rgba(255, 0, 0, 0.8); /* Add a glowing effect */
-}
-
-/* Edit Button Disabled Style */
-#respond-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+/* Hover Effect */
+button.editBtn:hover, button.deleteBtn:hover, button.respondButton:hover, button.deleteContactBtn:hover {
+    background-color: #a04545 !important;
+    transform: scale(1.05);
 }
