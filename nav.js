@@ -18,6 +18,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // Adding correct links for dashboard and logout
     const dashboardLink = document.getElementById('dashboardLink');
+    const settingsLink = document.getElementById('settingsLink');
     const logoutLink = document.getElementById('logoutLink');
     const role = localStorage.getItem("role");
 
@@ -33,6 +34,12 @@ window.addEventListener('DOMContentLoaded', function () {
             // Fallback if no valid role is found
             dashboardLink.href = "index.html"; // Or any default page
         }
+    }
+
+    if (settingsLink) {
+        settingsLink.addEventListener('click', function () {
+            window.location.href = "settings.php"; // Redirect to login page
+        });
     }
 
     if (logoutLink) {

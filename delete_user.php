@@ -11,7 +11,7 @@ if (isset($_POST['regID'])) {
     $regID = $_POST['regID'];
 
     // Use prepared statement to avoid SQL injection
-    $stmt = $conn->prepare("DELETE FROM users WHERE regID = ?");
+    $stmt = $conn->prepare("DELETE FROM registrations WHERE regID = ?");
     $stmt->bind_param("i", $regID);
 
     if ($stmt->execute()) {
