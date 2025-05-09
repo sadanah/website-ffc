@@ -7,12 +7,7 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-$regID = 123; // Hidden
-$fName = "John";
-$lName = "Doe";
-$email = "john.doe@example.com";
-$phone = "0712345678";
-$address = "123, Main Street";
+$regID = $_SESSION['regID']; // Use regID from session
 ?>
 
 
@@ -136,30 +131,54 @@ $address = "123, Main Street";
                 <table class="table table-bordered settings-table">
                     <tr>
                         <th>First Name</th>
-                        <td><input type="text" name="fName" value="<?php echo $fName; ?>" required></td>
+                        <td><input type="text" name="fName" id="fName" required></td>
                     </tr>
                     <tr>
                         <th>Last Name</th>
-                        <td><input type="text" name="lName" value="<?php echo $lName; ?>" required></td>
+                        <td><input type="text" name="lName" id="lName" required></td>
                     </tr>
                     <tr>
                         <th>Email</th>
-                        <td><input type="email" name="email" value="<?php echo $email; ?>" required></td>
+                        <td><input type="email" name="email" id="email" required></td>
                     </tr>
                     <tr>
                         <th>Phone</th>
-                        <td><input type="text" name="phone" value="<?php echo $phone; ?>" required></td>
-                    </tr>
-                    <tr>
-                        <th>Address</th>
-                        <td><input type="text" name="address" value="<?php echo $address; ?>"></td>
+                        <td><input type="text" name="phoneNo" id="phoneNo" required></td>
                     </tr>
                 </table>
 
                 <button type="submit" class="btn btn-danger">Save Changes</button>
             </form>
+
+            <!-- Hidden regID input for JS fetch -->
+            <input type="hidden" id="regID" value="<?php echo $regID; ?>">
         </div>
-        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const regID = document.getElementById("regID").value;
+
+                fetch(`get_user.php?regID=${regID}`)
+                    .then(response => response.json())
+                    .then(user => {
+                        if (!user.error) {
+                            document.getElementById("fName").value = user.fName;
+                            document.getElementById("lName").value = user.lName;
+                            document.getElementById("email").value = user.email;
+                            document.getElementById("phoneNo").value = user.phoneNo;
+                        } else {
+                            alert("Error: " + user.error);
+                        }
+                    })
+                    .catch(err => console.error("Fetch error:", err));
+            });
+        </script>
+         <!--SCRIPTS-->
+        <!--Javascript and Bootstrap Libraries-->
+        <script src="jquery.min.js_2.1.3/cdnjs/jquery.min.js"></script>
+        <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script> 
+
+        <!--Role based navigation script-->
+        <script src="nav.js" defer></script> 
         <!--Logout Login scripts-->
         <script src="login.js" defer></script>
         <script src="logout.js" defer></script>

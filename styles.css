@@ -610,3 +610,11 @@ button.editBtn:hover, button.deleteBtn:hover, button.respondButton:hover, button
     background-color: #a04545 !important;
     transform: scale(1.05);
 }
+
+
+
+.settings-table input[type="text"],
+.settings-table input[type="email"] {
+    width: 300px;
+}
+

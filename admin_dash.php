@@ -10,6 +10,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
 
 // If the user is an admin, display the page content
 echo "Welcome to the Admin Dashboard, " . $_SESSION['username'];
+
 ?>
 
 

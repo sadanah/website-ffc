@@ -23,15 +23,20 @@ if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
     
     if (password_verify($password, $user['password'])) {
-        // Password matches
-        $_SESSION['username'] = $username;
+        // ✅ Password matches - store everything needed in session
+        $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role'];
-        echo json_encode(['success' => true, 'username' => $username, 'role' => $user['role']]);
+        $_SESSION['regID'] = $user['regID']; // ✅ Corrected from $row to $user
+        
+        echo json_encode([
+            'success' => true,
+            'username' => $user['username'],
+            'role' => $user['role']
+        ]);
     } else {
         // Password doesn't match
         echo json_encode(['success' => false, 'message' => 'Invalid password.']);
     }
-    
 } else {
     echo json_encode(['success' => false, 'message' => 'User not found.']);
 }
